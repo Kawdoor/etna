@@ -397,16 +397,27 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onSave,
 }) => {
   const [formData, setFormData] = useState<Partial<Order>>(
-    order || {
-      firstName: "",
-      lastName: "",
-      email: "",
-      address: "",
-      city: "",
-      zipCode: "",
-      status: "pending",
-      items: [],
-    },
+    order
+      ? {
+          ...order,
+          // Ensure controlled inputs don't start as undefined
+          city: (order as any).city || "",
+          zipCode: (order as any).zipCode || "",
+          firstName: order.firstName || "",
+          lastName: order.lastName || "",
+          email: order.email || "",
+          address: order.address || "",
+        }
+      : {
+          firstName: "",
+          lastName: "",
+          email: "",
+          address: "",
+          city: "",
+          zipCode: "",
+          status: "pending",
+          items: [],
+        },
   );
 
   const [productSearch, setProductSearch] = useState("");

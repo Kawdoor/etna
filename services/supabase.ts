@@ -26,6 +26,8 @@ export const supabase = createClient(
   supabaseAnonKey || "placeholder",
 );
 
+// Helper for proxy calls removed as we are using direct calls with upsert
+
 export const InventoryService = {
   async getProducts() {
     const { data, error } = await supabase
@@ -49,10 +51,22 @@ export const InventoryService = {
   },
 
   async updateProduct(id: string, updates: Partial<Product>) {
+    // First get the current product to merge with updates
+    const { data: currentProduct, error: fetchError } = await supabase
+      .from("products")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) throw fetchError;
+
+    // Merge updates with current data
+    const updatedProduct = { ...currentProduct, ...updates };
+
+    // Use upsert instead of update to avoid CORS PATCH issues
     const { data, error } = await supabase
       .from("products")
-      .update(updates)
-      .eq("id", id)
+      .upsert(updatedProduct, { onConflict: "id" })
       .select()
       .single();
 
@@ -114,10 +128,20 @@ export const ConsultationService = {
   },
 
   async updateStatus(id: string, status: string) {
+    // Fetch, merge, upsert pattern
+    const { data: current, error: fetchError } = await supabase
+      .from("consultations")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) throw fetchError;
+
+    const updated = { ...current, status };
+
     const { data, error } = await supabase
       .from("consultations")
-      .update({ status })
-      .eq("id", id)
+      .upsert(updated, { onConflict: "id" })
       .select()
       .single();
 
@@ -165,7 +189,6 @@ export const OrderService = {
   },
 
   async addOrder(order: any, items: any[]) {
-    // 1. Create Order
     const { data: orderData, error: orderError } = await supabase
       .from("orders")
       .insert([order])
@@ -173,6 +196,7 @@ export const OrderService = {
       .single();
 
     if (orderError) throw orderError;
+    if (!orderData) throw new Error("Order creation failed");
 
     // 2. Create Sale Items
     const saleItems = items.map((item) => {
@@ -200,10 +224,20 @@ export const OrderService = {
   },
 
   async updateStatus(id: string, status: string) {
+    // Fetch, merge, upsert pattern
+    const { data: current, error: fetchError } = await supabase
+      .from("orders")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) throw fetchError;
+
+    const updated = { ...current, status };
+
     const { data, error } = await supabase
       .from("orders")
-      .update({ status })
-      .eq("id", id)
+      .upsert(updated, { onConflict: "id" })
       .select()
       .single();
 
@@ -241,17 +275,18 @@ export const ConfigService = {
     const existing = await this.getConfig();
 
     if (existing && existing.id) {
+      // Merge updates with current data
+      const updatedConfig = { ...existing, ...updates };
+
       const { data, error } = await supabase
         .from("config")
-        .update(updates)
-        .eq("id", existing.id)
+        .upsert(updatedConfig, { onConflict: "id" })
         .select()
         .single();
 
       if (error) throw error;
       return data as AppConfig;
     } else {
-      // Create new if doesn't exist
       const { data, error } = await supabase
         .from("config")
         .insert([updates]) // id will be auto generated
