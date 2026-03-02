@@ -38,8 +38,6 @@ const FloatingAssistant: React.FC = () => {
     };
   }, [messages, isTyping]); // Re-bind with latest state references if needed, or use functional state updates inside handleSend
 
-  if (!config.ai_active) return null;
-
   // Auto-scroll al recibir mensajes
   useEffect(() => {
     if (scrollRef.current) {
@@ -100,6 +98,8 @@ const FloatingAssistant: React.FC = () => {
       ]);
     }
   };
+
+  if (!config.ai_active) return null;
 
   return (
     <div
