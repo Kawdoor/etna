@@ -307,8 +307,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
       </nav>
 
       <section className="relative w-full h-screen flex items-end p-8 md:p-20 overflow-hidden group/hero">
-        <img
-          src={product.image}
+          <ImageWithLoader
           alt={product.name}
           className="absolute inset-0 w-full h-full object-cover scale-105 animate-in fade-in duration-500"
         />
@@ -477,9 +476,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
               <div
                 key={idx}
                 className="aspect-video bg-neutral-100 overflow-hidden group border border-navalBlue/5 cursor-pointer"
-                onClick={() => setLightbox({ src: img, index: idx })} 
+                onClick={() => setLightbox({ src: img, index: idx })}
               >
-                <img
+                <ImageWithLoader
                   src={img}
                   alt={`Gallery ${idx}`}
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
