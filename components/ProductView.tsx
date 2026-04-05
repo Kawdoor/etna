@@ -527,6 +527,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       {userImage ? (
                         <img
                           src={userImage}
+                          alt="User room"
                           className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity"
                         />
                       ) : (
@@ -636,8 +637,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
               <div className="aspect-square bg-neutral-100 relative overflow-hidden border border-navalBlue/5">
                 {resultImage ? (
                   <div className="relative w-full h-full group">
-                    <img
+                    <ImageWithLoader
                       src={resultImage}
+                      alt="Room Visualization Result"
                       className="w-full h-full object-cover cursor-zoom-in"
                       onClick={() => setLightbox({ src: resultImage, index: -1 })}
                     />
