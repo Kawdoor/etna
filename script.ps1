@@ -1,0 +1,1 @@
+(Get-Content .\components\Hero.tsx) -replace "imageUrl: config.hero_image_url \|\| "/images/hero.jpg",", "imageUrl: config.hero_image_url || '/images/hero.jpg', colors: config.theme_colors || {}," | Set-Content .\components\Hero.tsx

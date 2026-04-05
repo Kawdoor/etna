@@ -41,6 +41,9 @@ create table public.config (
   vision_text text,
   vision_image_url text,
 
+  -- Theme Colors Section
+  theme_colors jsonb default '{"hero":{"bg":"bg-navyDark","text":"text-white"},"about":{"bg":"bg-pullmanBrown","text":"text-white"},"showcase":{"bg":"bg-navyDark","text":"text-white"},"contact":{"bg":"bg-navyDark","text":"text-white"},"footer":{"bg":"bg-pullmanBrown","text":"text-white"}}'::jsonb,
+
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 

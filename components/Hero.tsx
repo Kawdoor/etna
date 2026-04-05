@@ -5,6 +5,7 @@ import { InventoryService, supabase } from "../services/supabase";
 import { optimizeImage } from "../utils/imageOptimizer";
 import { FloatingGeometryHero } from "./ui/FloatingGeometryHero";
 import RichTextEditor from "./ui/RichTextEditor";
+import { ThemeColorPicker } from "./ui/ThemeColorPicker";
 
 const Hero: React.FC = () => {
   const { config, updateLocalConfig } = useConfig();
@@ -20,6 +21,7 @@ const Hero: React.FC = () => {
     subheadline: "",
     text: "",
     imageUrl: "",
+    colors: {} as Record<string, { bg?: string; text?: string }>,
   });
 
   useEffect(() => {
@@ -56,6 +58,7 @@ const Hero: React.FC = () => {
           config.hero_text ||
           "La interfaz definitiva entre la luz y el espacio. Sistemas de iluminación de alta precisión diseñados para el confort visual.",
         imageUrl: config.hero_image_url || "/images/hero.jpg",
+        colors: config.theme_colors || {},
       });
     }
   }, [isEditing, config]);
@@ -78,6 +81,7 @@ const Hero: React.FC = () => {
       hero_subheadline: editValues.subheadline,
       hero_text: editValues.text,
       hero_image_url: editValues.imageUrl,
+      theme_colors: editValues.colors,
     });
     setIsEditing(false);
   };
@@ -104,10 +108,14 @@ const Hero: React.FC = () => {
   const opacity = Math.max(0, 1 - scrollY / 600);
   const scale = Math.max(1, 1.1 - scrollY / 2000); // Starts at 1.1 to match original scale-110 feel, scales down
 
+  const currentWrapperClass = isEditing
+    ? `${editValues.colors?.hero?.bg || "bg-navyDark"} ${editValues.colors?.hero?.text || "text-white"} relative h-screen w-full flex items-center justify-center overflow-hidden group/hero transition-colors duration-500`
+    : `${config.theme_colors?.hero?.bg || "bg-navyDark"} ${config.theme_colors?.hero?.text || "text-white"} relative h-screen w-full flex items-center justify-center overflow-hidden group/hero transition-colors duration-500`;
+
   return (
     <section
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden group/hero"
+      className={currentWrapperClass}
     >
       {/* Admin Controls */}
       {isAdmin && (
@@ -167,6 +175,19 @@ const Hero: React.FC = () => {
                   </svg>
                 )}
               </button>
+              <ThemeColorPicker
+                sectionId="hero"
+                colors={editValues.colors}
+                onChange={(sectionId, bg, text) => 
+                  setEditValues({
+                    ...editValues,
+                    colors: {
+                      ...editValues.colors,
+                      [sectionId]: { bg, text }
+                    }
+                  })
+                }
+              />
               <button
                 onClick={handleSave}
                 className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all"

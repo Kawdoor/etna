@@ -9,6 +9,7 @@ import { Product } from "../types";
 import { optimizeImage } from "../utils/imageOptimizer";
 import { ImageWithLoader } from "./ui/ImageWithLoader";
 import RichTextEditor from "./ui/RichTextEditor";
+import { ThemeColorPicker } from "./ui/ThemeColorPicker";
 
 const ExpandingGridRow: React.FC<{
   products: Product[];
@@ -184,6 +185,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
     collectionHeadline: "",
     collectionSubheadline: "",
     collectionImage: "",
+    colors: {} as Record<string, { bg?: string; text?: string }>,
   });
 
   useEffect(() => {
@@ -197,6 +199,19 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
     );
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (config) {
+      setEditValues({
+        headline: config.showcase_headline || "",
+        subheadline: config.showcase_subheadline || "",
+        collectionHeadline: config.collection_hero_headline || "",
+        collectionSubheadline: config.collection_hero_subheadline || "",
+        collectionImage: config.collection_hero_image || "",
+        colors: config.theme_colors || {},
+      });
+    }
+  }, [config]);
 
   useEffect(() => {
     if (!isEditing) {
@@ -218,6 +233,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
         collectionImage:
           config.collection_hero_image_url ||
           "/images/pexels-photo-276528.webp",
+        colors: config.theme_colors || {},
       });
     }
   }, [isEditing, showAll, config]);
@@ -230,11 +246,16 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
         collection_hero_headline: editValues.collectionHeadline,
         collection_hero_subheadline: editValues.collectionSubheadline,
         collection_hero_image_url: editValues.collectionImage,
+        theme_colors: editValues.colors,
       });
     } else {
       await updateLocalConfig({
         catalog_headline: editValues.headline,
         catalog_description: editValues.subheadline,
+        collection_hero_headline: editValues.collectionHeadline,
+        collection_hero_subheadline: editValues.collectionSubheadline,
+        collection_hero_image_url: editValues.collectionImage,
+        theme_colors: editValues.colors,
       });
     }
     setIsEditing(false);
@@ -375,10 +396,11 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
   ];
 
   if (loading) {
+    const loaderBg = editValues.colors?.showcase?.bg || "bg-navyDark";
     return (
       <section
         id="showcase"
-        className="py-24 bg-navyDark min-h-screen flex items-center justify-center"
+        className={`py-24 ${loaderBg} min-h-screen flex items-center justify-center`}
       >
         <div className="font-futuristic text-xs tracking-[0.3em] text-neutral-500 animate-pulse">
           LOADING_COLLECTION...
@@ -387,14 +409,34 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
     );
   }
 
+  const currentWrapperClass = editValues.colors?.showcase?.bg || "bg-navyDark";
+  const currentTextClass = editValues.colors?.showcase?.text || "";
+
   return (
     <section
       id="showcase"
-      className={`${showAll ? "min-h-screen pt-0" : "py-24"} bg-navyDark transition-all duration-1000 overflow-hidden relative group/showcase`}
+      className={`${showAll ? "min-h-screen pt-0" : "py-24"} ${currentWrapperClass} ${currentTextClass} transition-all duration-1000 overflow-hidden relative group/showcase`}
     >
       {/* Admin Controls */}
       {isAdmin && (
-        <div className="absolute top-24 right-6 z-50 flex gap-2">
+        <div className="absolute top-24 right-6 z-50 flex gap-2 items-center">
+          {isEditing && (
+            <div className="mr-4 animate-fade-in-up">
+              <ThemeColorPicker
+                currentColor={editValues.colors?.showcase?.bg || "bg-navyDark"} 
+                currentTextColor={editValues.colors?.showcase?.text || ""}
+                onChange={(bg, text) =>
+                  setEditValues((prev) => ({
+                    ...prev,
+                    colors: {
+                      ...prev.colors,
+                      showcase: { bg, text },
+                    },
+                  }))
+                }
+              />
+            </div>
+          )}
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}

@@ -5,6 +5,7 @@ import { InventoryService, supabase } from "../services/supabase";
 import { optimizeImage } from "../utils/imageOptimizer";
 import RichTextEditor from "./ui/RichTextEditor";
 import { ScrollReveal } from "./ui/ScrollReveal";
+import { ThemeColorPicker } from "./ui/ThemeColorPicker";
 
 const About: React.FC = () => {
   const { config, updateLocalConfig } = useConfig();
@@ -17,6 +18,7 @@ const About: React.FC = () => {
     headline: "",
     description: "",
     items: [] as any[],
+    colors: {} as Record<string, { bg?: string; text?: string }>,
   });
 
   useEffect(() => {
@@ -39,6 +41,7 @@ const About: React.FC = () => {
           config.about_description ||
           "ETNA no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
         items: config.about_history || [],
+        colors: config.theme_colors || {},
       });
     }
   }, [isEditing, config]);
@@ -48,6 +51,7 @@ const About: React.FC = () => {
       about_headline: editValues.headline,
       about_description: editValues.description,
       about_history: editValues.items,
+      theme_colors: editValues.colors,
     });
     setIsEditing(false);
   };
@@ -103,14 +107,18 @@ const About: React.FC = () => {
     }));
   };
 
+  const currentWrapperClass = isEditing
+    ? `${editValues.colors?.about?.bg || "bg-pullmanBrown"} pt-32 pb-24 ${editValues.colors?.about?.text || "text-white"} relative group/about flex flex-col transition-colors duration-500`
+    : `${config.theme_colors?.about?.bg || "bg-pullmanBrown"} pt-32 pb-24 ${config.theme_colors?.about?.text || "text-white"} relative group/about transition-colors duration-500`;
+
   return (
     <div
       id="about"
-      className="bg-pullmanBrown pt-32 pb-24 text-white relative group/about"      
+      className={currentWrapperClass}
     >
       {/* Admin Controls */}
       {isAdmin && (
-        <div className="absolute top-24 right-6 z-50 flex gap-2">
+        <div className="absolute top-24 right-6 z-50 flex gap-4 items-center">
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
@@ -133,9 +141,22 @@ const About: React.FC = () => {
             </button>
           ) : (
             <>
+              <ThemeColorPicker
+                sectionId="about"
+                colors={editValues.colors}
+                onChange={(sectionId, bg, text) => 
+                  setEditValues({
+                    ...editValues,
+                    colors: {
+                      ...editValues.colors,
+                      [sectionId]: { bg, text }
+                    }
+                  })
+                }
+              />
               <button
                 onClick={handleSave}
-                className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all"
+                className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all shadow-xl"
                 title="Guardar Cambios"
               >
                 <svg

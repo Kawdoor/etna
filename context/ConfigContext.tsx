@@ -72,6 +72,13 @@ const defaultConfig: AppConfig = {
     "Diseño que trasciende la función para convertirse en <span class='text-white opacity-100 not-italic'>luz pura.</span>",
   vision_image_url:
     "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070",
+  theme_colors: {
+    hero: { bg: "bg-navyDark", text: "text-white" },
+    about: { bg: "bg-pullmanBrown", text: "text-white" },
+    showcase: { bg: "bg-navyDark", text: "text-white" },
+    contact: { bg: "bg-navyDark", text: "text-white" },
+    footer: { bg: "bg-pullmanBrown", text: "text-white" }
+  },
 };
 
 const ConfigContext = createContext<ConfigContextType>({

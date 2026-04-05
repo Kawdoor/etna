@@ -61,6 +61,7 @@ export interface AppConfig {
   contact_phone: string;
   opening_hours: string;
   theme?: "dark" | "light";
+  theme_colors?: Record<string, { bg?: string; text?: string }>;
   ai_active: boolean;
   use_mock_data: boolean;
   hero_headline?: string;

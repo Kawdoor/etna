@@ -6,24 +6,35 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey =
   import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_KEY;
 
+const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 export const isSupabaseConfigured = () => {
   return (
     !!supabaseUrl &&
     !!supabaseAnonKey &&
     supabaseUrl !== "undefined" &&
-    supabaseAnonKey !== "undefined"
+    supabaseAnonKey !== "undefined" &&
+    isValidUrl(supabaseUrl) &&
+    !supabaseUrl.includes("YOUR_SUPABASE_URL_HERE")
   );
 };
 
 if (!isSupabaseConfigured()) {
   console.warn(
-    "Missing Supabase environment variables. Backend features will be disabled.",
+    "Missing or invalid Supabase environment variables. Backend features will be disabled.",
   );
 }
 
 export const supabase = createClient(
-  supabaseUrl || "https://placeholder.supabase.co",
-  supabaseAnonKey || "placeholder",
+  isSupabaseConfigured() ? supabaseUrl : "https://placeholder.supabase.co",
+  isSupabaseConfigured() ? supabaseAnonKey : "placeholder",
 );
 
 // Helper for proxy calls removed as we are using direct calls with upsert
