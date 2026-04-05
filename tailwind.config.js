@@ -22,6 +22,10 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
         },
       },
+      colors: {
+        navalBlue: '#001F3F', // Primary color
+        pullmanBrown: '#644117', // Secondary color
+      },
     },
   },
   plugins: [],

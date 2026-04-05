@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     if (!isEditing) {
       setEditValues({
-        headline: config.hero_headline || "ATELIER",
+        headline: config.hero_headline || "ETNA",
         subheadline: config.hero_subheadline || "LIGHTING_TECH",
         text:
           config.hero_text ||
@@ -220,13 +220,13 @@ const Hero: React.FC = () => {
         {isEditing && editValues.imageUrl ? (
           <img
              src={editValues.imageUrl}
-             alt="ATELIER Modern Lighting"
+             alt="ETNA Modern Lighting"
              className="w-full h-full object-cover opacity-50 transition-all duration-500"
           />
         ) : config.hero_image_url && config.hero_image_url !== '/images/hero.jpg' ? (
            <img
              src={config.hero_image_url}
-             alt="ATELIER Modern Lighting"
+             alt="ETNA Modern Lighting"
              className="w-full h-full object-cover opacity-50 transition-all duration-500"
           />
         ) : (
@@ -251,7 +251,7 @@ const Hero: React.FC = () => {
               autoFocus
             />
           ) : (
-            <span>{config.hero_headline || "ATELIER"}</span>
+            <span>{config.hero_headline || "ETNA"}</span>
           )}
 
           {isEditing ? (

@@ -14,7 +14,7 @@ interface AdminPanelProps {
 const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
   const { config, updateLocalConfig } = useConfig();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [email, setEmail] = useState("admin@atelier.com");
+  const [email, setEmail] = useState("admin@etna.com");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [counts, setCounts] = useState({
@@ -244,7 +244,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
           ) : (
             <div className="mb-0 animate-in fade-in duration-300">
               <h2 className="font-futuristic text-xl tracking-[0.3em] whitespace-nowrap">
-                ATELIER_OS
+                ETNA_OS
               </h2>
               <p className="text-[8px] font-futuristic tracking-[0.4em] text-neutral-600 mt-2">
                 TERMINAL_v4.2
@@ -531,7 +531,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                         updateLocalConfig({ hero_headline: e.target.value })
                       }
                       className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-xl font-light"
-                      placeholder="ATELIER"
+                      placeholder="ETNA"
                     />
                   </div>
                   <div className="space-y-4">

@@ -1,9 +1,9 @@
 -- Create config table
 create table public.config (
   id serial primary key,
-  site_name text default 'ATELIER',
+  site_name text default 'ETNA',
   site_description text default 'Iluminación de Vanguardia',
-  contact_email text default 'contact@atelier.com',
+  contact_email text default 'contact@etna.com',
   contact_phone text default '+54 9 11 1234 5678',
   opening_hours text default 'Lun - Vie: 10:00 - 19:00',
   theme text default 'dark',

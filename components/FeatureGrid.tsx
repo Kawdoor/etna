@@ -203,7 +203,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
       setEditValues({
         // Main section defaults
         headline: showAll
-          ? config.catalog_headline_full || "SISTEMAS ATELIER."
+          ? config.catalog_headline_full || "SISTEMAS ETNA."
           : config.catalog_headline || "DISEÑO EXPANSIVO.",
         subheadline: showAll
           ? config.catalog_description_full || "FILTROS_TÉCNICOS"
@@ -606,7 +606,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                   dangerouslySetInnerHTML={{
                     __html: showAll
                       ? config.catalog_headline_full ||
-                        "SISTEMAS <br/> <span class='opacity-40 italic'>ATELIER.</span>"
+                        "SISTEMAS <br/> <span class='opacity-40 italic'>ETNA.</span>"
                       : config.catalog_headline ||
                         "DISEÑO <br/> <span class='opacity-40 italic'>EXPANSIVO.</span>",
                   }}

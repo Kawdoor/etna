@@ -37,7 +37,7 @@ const About: React.FC = () => {
         headline: config.about_headline || "LEGADO VIRTUAL.",
         description:
           config.about_description ||
-          "ATELIER no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
+          "ETNA no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
         items: config.about_history || [],
       });
     }
@@ -220,7 +220,7 @@ const About: React.FC = () => {
               dangerouslySetInnerHTML={{
                 __html:
                   config.about_description ||
-                  "ATELIER no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
+                  "ETNA no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
               }}
             />
           )}

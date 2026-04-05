@@ -178,7 +178,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
     if (!resultImage) return;
     const link = document.createElement("a");
     link.href = resultImage;
-    link.download = `atelier-visualization-${product.id}.png`;
+    link.download = `etna-visualization-${product.id}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

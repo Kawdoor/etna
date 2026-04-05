@@ -119,7 +119,7 @@ const FloatingAssistant: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             <span className="font-futuristic text-[9px] tracking-[0.4em]">
-              ATELIER_NEURAL_CORE v1.2
+              ETNA_NEURAL_CORE v1.2
             </span>
           </div>
           <button

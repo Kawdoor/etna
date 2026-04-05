@@ -6,7 +6,7 @@ const AIConsultant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "model",
-      text: "Bienvenido a ATELIER. Soy tu Consultor de Diseño IA. Describe tu espacio y te sugeriré la atmósfera lumínica perfecta.",
+      text: "Bienvenido a ETNA. Soy tu Consultor de Diseño IA. Describe tu espacio y te sugeriré la atmósfera lumínica perfecta.",
     },
   ]);
   const [input, setInput] = useState("");

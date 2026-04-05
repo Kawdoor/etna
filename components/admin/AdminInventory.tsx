@@ -256,7 +256,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
     link.href = url;
     link.setAttribute(
       "download",
-      `atelier_inventory_${new Date().toISOString().split("T")[0]}.csv`,
+      `etna_inventory_${new Date().toISOString().split("T")[0]}.csv`,
     );
     document.body.appendChild(link);
     link.click();

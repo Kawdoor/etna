@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           onClick={() => onNavigate("home")}
           className="font-futuristic text-2xl tracking-[0.3em] font-extralight group relative cursor-pointer"
         >
-          ATELIER
+          ETNA
         </button>
 
         <div className="hidden md:flex space-x-12 items-center">

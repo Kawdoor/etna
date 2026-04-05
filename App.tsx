@@ -158,11 +158,11 @@ const AppContent: React.FC = () => {
           <div className="py-24 bg-black flex items-center justify-center border-y border-white/5 overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee">
               <span className="font-futuristic text-[8px] tracking-[2em] text-neutral-700 px-10">
-                ATELIER_LIGHTING - ARCHITECTURAL_ATMOSPHERE - PURE_MINIMALISM -
+                ETNA_LIGHTING - ARCHITECTURAL_ATMOSPHERE - PURE_MINIMALISM -
                 NEURAL_LIGHTING_AI -
               </span>
               <span className="font-futuristic text-[8px] tracking-[2em] text-neutral-700 px-10">
-                ATELIER_LIGHTING - ARCHITECTURAL_ATMOSPHERE - PURE_MINIMALISM -
+                ETNA_LIGHTING - ARCHITECTURAL_ATMOSPHERE - PURE_MINIMALISM -
                 NEURAL_LIGHTING_AI -
               </span>
             </div>

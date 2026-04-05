@@ -10,28 +10,28 @@ interface ConfigContextType {
 
 const defaultConfig: AppConfig = {
   id: 0,
-  site_name: "ATELIER",
+  site_name: "ETNA",
   site_description: "Iluminación de Vanguardia",
-  contact_email: "contact@atelier.com",
+  contact_email: "contact@etna.com",
   contact_phone: "+54 9 11 1234 5678",
   opening_hours: "Lun - Vie: 10:00 - 19:00",
   theme: "dark",
   ai_active: true,
   use_mock_data: true,
-  hero_headline: "ATELIER",
+  hero_headline: "ETNA",
   hero_subheadline: "LIGHTING_TECH",
   hero_text:
     "La interfaz definitiva entre la luz y el espacio. Sistemas de iluminación de alta precisión diseñados para el confort visual.",
   hero_image_url: "/images/hero.jpg",
   about_headline: "LEGADO VIRTUAL.",
   about_description:
-    "ATELIER no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
+    "ETNA no es solo una marca de iluminación; es un laboratorio de ingeniería lumínica donde el futuro de la arquitectura se encuentra con la precisión técnica.",
   about_history: [
     {
       year: "2018",
       title: "LA GÉNESIS",
       description:
-        "Nacimiento de ATELIER en un pequeño estudio de diseño en La Plata, con la visión de reinventar la iluminación espacial.",
+        "Nacimiento de ETNA en un pequeño estudio de diseño en La Plata, con la visión de reinventar la iluminación espacial.",
       image: "/images/pexels-photo-3183150.webp",
     },
     {
@@ -58,7 +58,7 @@ const defaultConfig: AppConfig = {
   ],
   catalog_headline: "DISEÑO EXPANSIVO.",
   catalog_description: "LA COLECCIÓN",
-  catalog_headline_full: "SISTEMAS ATELIER.",
+  catalog_headline_full: "SISTEMAS ETNA.",
   catalog_description_full: "FILTROS_TÉCNICOS",
   collection_hero_headline:
     "CATÁLOGO <br/> <span class='italic opacity-30 text-white'>EXTENDIDO.</span>",

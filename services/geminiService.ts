@@ -25,7 +25,7 @@ export class GeminiService {
     history: { role: "user" | "model"; parts: { text: string }[] }[],
   ) {
     if (!this.isConfigured()) {
-      return "Modo Demostración: Como no se ha detectado una API Key, estoy simulando ser ATELIER AI. Te recomendaría nuestra línea Orbital Suspension para espacios centrales o Monolith Floor para iluminación ambiental. Visítanos en nuestro showroom.";
+      return "Modo Demostración: Como no se ha detectado una API Key, estoy simulando ser ETNA AI. Te recomendaría nuestra línea Orbital Suspension para espacios centrales o Monolith Floor para iluminación ambiental. Visítanos en nuestro showroom.";
     }
     try {
       const ai = this.getAI();
@@ -33,7 +33,7 @@ export class GeminiService {
         model: "gemini-3-flash-preview",
         contents: [...history, { role: "user", parts: [{ text: prompt }] }],
         config: {
-          systemInstruction: `Eres 'ATELIER AI', un consultor de iluminación arquitectónica para ATELIER.
+          systemInstruction: `Eres 'ETNA AI', un consultor de iluminación arquitectónica para ETNA.
         
             IDENTIDAD:
             - Tono: Sofisticado, técnico, artístico, minimalista. Hable de "temperatura de luz", "índice de reproducción cromática (CRI)", "lúmenes" y "atmósfera".

@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminOpen }) => {
           <ul className="space-y-4 font-light text-sm text-neutral-400">
             <li>
               <a
-                href="https://www.instagram.com/atelieriluminacion"
+                href="https://www.instagram.com/etnailuminacion"
                 target="_blank"
                 className="hover:text-white transition-colors"
               >
@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminOpen }) => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-futuristic tracking-[0.3em] text-neutral-600">
-        <span>© 2024 ATELIER TECHNOLOGIES. TODOS LOS DERECHOS RESERVADOS.</span>
+        <span>© 2024 ETNA TECHNOLOGIES. TODOS LOS DERECHOS RESERVADOS.</span>
         <div className="flex gap-8 items-center">
           <a href="#" className="hover:text-white transition-colors">
             PRIVACIDAD
