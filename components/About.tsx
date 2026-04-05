@@ -106,7 +106,7 @@ const About: React.FC = () => {
   return (
     <div
       id="about"
-      className="bg-black pt-32 pb-24 text-white relative group/about"
+      className="bg-pullmanBrown pt-32 pb-24 text-white relative group/about"      
     >
       {/* Admin Controls */}
       {isAdmin && (
@@ -246,7 +246,7 @@ const About: React.FC = () => {
                       className="w-full h-full object-cover"
                     />
                     {isEditing && (
-                      <div className="absolute inset-0 bg-black/50 flex flex-col gap-2 items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity z-10">
+                      <div className="absolute inset-0 bg-navalBlue/50 flex flex-col gap-2 items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity z-10">
                         <input
                           type="file"
                           hidden
@@ -256,7 +256,7 @@ const About: React.FC = () => {
                         />
                         <button
                           onClick={() => fileRefs.current[index]?.click()}
-                          className="bg-white text-black px-4 py-2 rounded-full font-futuristic text-xs tracking-widest hover:scale-105 transition-transform"
+                          className="bg-pullmanBrown text-white px-4 py-2 rounded-full font-futuristic text-xs tracking-widest hover:scale-105 transition-transform"
                           disabled={uploadingIndex === index}
                         >
                           {uploadingIndex === index

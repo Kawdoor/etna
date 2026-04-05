@@ -59,7 +59,7 @@ const ContactInfo: React.FC = () => {
   return (
     <section
       id="contact-info"
-      className="py-32 px-6 bg-[#0a0a0a] relative group/contact"
+      className="py-32 px-6 bg-navyDark relative group/contact"
     >
       {/* Admin Controls */}
       {isAdmin && (
@@ -359,7 +359,7 @@ const ContactInfo: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative aspect-square lg:aspect-video bg-neutral-900 overflow-hidden group border border-white/5">
+          <div className="relative aspect-square lg:aspect-video bg-navalBlue overflow-hidden group border border-white/5">
             {/* Google Maps Embed - Free & Interactive */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.748364808383!2d-57.954620023473175!3d-34.91277127464003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e633d7b3e64f%3A0xc6a8276f57c6b44c!2sC.%2017%20903%2C%20B1900%20La%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"

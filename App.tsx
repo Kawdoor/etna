@@ -145,7 +145,7 @@ const AppContent: React.FC = () => {
   }, [selectedProduct, isAdminOpen]);
 
   return (
-    <div className="animate-gradient min-h-screen selection:bg-white selection:text-black relative">
+    <div className="animate-gradient min-h-screen selection:bg-white selection:text-navalBlue relative">
       <CartSidebar onCheckout={() => handleNavigation("checkout")} />
       {!selectedProduct && !isAdminOpen && (
         <Navbar onNavigate={handleNavigation} />
@@ -155,7 +155,7 @@ const AppContent: React.FC = () => {
         <main className="animate-in fade-in duration-1000">
           <Hero />
 
-          <div className="py-24 bg-black flex items-center justify-center border-y border-white/5 overflow-hidden">
+          <div className="py-24 bg-pullmanBrown flex items-center justify-center border-y border-white/5 overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee">
               <span className="font-futuristic text-[8px] tracking-[2em] text-neutral-700 px-10">
                 ETNA_LIGHTING - ARCHITECTURAL_ATMOSPHERE - PURE_MINIMALISM -
@@ -203,7 +203,7 @@ const AppContent: React.FC = () => {
         position="bottom-center"
         toastOptions={{
           style: {
-            background: "rgba(0,0,0,0.8)",
+            background: "rgba(0,15,38,0.9)",
             color: "white",
             border: "1px solid rgba(255,255,255,0.1)",
             backdropFilter: "blur(10px)",

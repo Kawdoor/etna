@@ -161,13 +161,13 @@ export const FloatingGeometryHero: React.FC = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-neutral-900 to-stone-900 overflow-hidden">
+        <div ref={containerRef} className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-navalBlue to-stone-900 overflow-hidden">
              <canvas 
                 ref={canvasRef} 
                 className="absolute inset-0 w-full h-full block"
             />
             {/* Overlay gradient to blend with content below if needed */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-navalBlue/40 to-transparent pointer-events-none"></div>
         </div>
     );
 };

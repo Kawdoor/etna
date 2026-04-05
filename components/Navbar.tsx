@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[20000] transition-all duration-700 ${scrolled ? "bg-black/95 backdrop-blur-xl py-4 border-b border-white/5 shadow-2xl" : "bg-transparent py-8"}`}
+      className={`fixed top-0 left-0 w-full z-[20000] transition-all duration-700 ${scrolled ? "bg-navalBlue/95 backdrop-blur-xl py-4 border-b border-white/5 shadow-2xl" : "bg-transparent py-8"}`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-[20001]">
         <button
@@ -78,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         </button>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/5">
+          <div className="md:hidden absolute top-full left-0 w-full bg-navalBlue/95 backdrop-blur-xl border-b border-white/5">
             <div className="flex flex-col space-y-4 py-6 px-6">
               {navLinks.map((link) => (
                 <button

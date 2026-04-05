@@ -110,7 +110,7 @@ export const AdminDashboard: React.FC = () => {
 
   return (
     <div className="space-y-16 animate-in slide-in-from-bottom-4 duration-700">
-      <div className="flex justify-between items-end border-b border-black/5 dark:border-white/5 pb-8">
+      <div className="flex justify-between items-end border-b border-navalBlue/5 dark:border-white/5 pb-8">
         <h2 className="text-4xl md:text-6xl font-thin tracking-tighter">
           SISTEMA <br />
           <span className="opacity-40 italic">MÉTRICO.</span>
@@ -154,10 +154,10 @@ export const AdminDashboard: React.FC = () => {
         ].map((stat, i) => (
           <div
             key={i}
-            className={`p-8 border bg-neutral-50 dark:bg-black/40 hover:border-black/20 dark:hover:border-white/20 transition-colors ${
+            className={`p-8 border bg-neutral-50 dark:bg-navalBlue/40 hover:border-navalBlue/20 dark:hover:border-white/20 transition-colors ${
               stat.alert
                 ? "border-red-500/50 dark:border-red-500/50"
-                : "border-black/5 dark:border-white/5"
+                : "border-navalBlue/5 dark:border-white/5"
             }`}
           >
             <span className="font-futuristic text-[9px] tracking-widest text-neutral-600 block mb-4 uppercase truncate">
@@ -195,8 +195,8 @@ export const AdminDashboard: React.FC = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
         {/* Pie Chart Card */}
-        <div className="p-8 md:p-12 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/20">
-          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-black">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             DISTRIBUCIÓN_CATEGORÍA
           </h3>
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -230,7 +230,7 @@ export const AdminDashboard: React.FC = () => {
                         ][i % 5],
                       }}
                     ></div>
-                    <span className="text-xs font-futuristic uppercase tracking-wider text-neutral-500 group-hover:text-black dark:group-hover:text-white transition-colors">
+                    <span className="text-xs font-futuristic uppercase tracking-wider text-neutral-500 group-hover:text-navalBlue dark:group-hover:text-white transition-colors">
                       {cat.name}
                     </span>
                   </div>
@@ -244,11 +244,11 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Top Products Chart */}
-        <div className="p-8 md:p-12 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/20 flex flex-col">
-          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-black">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20 flex flex-col">
+          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             TOP_PRODUCTOS_VALOR
           </h3>
-          <div className="flex-1 flex items-end justify-between gap-4 h-48 w-full border-b border-black/10 dark:border-white/10 pb-4">
+          <div className="flex-1 flex items-end justify-between gap-4 h-48 w-full border-b border-navalBlue/10 dark:border-white/10 pb-4">
             {topProducts.map((p, i) => {
               const value = p.price * p.stock;
               const maxValue = Math.max(...topProducts.map(p => p.price * p.stock));
@@ -256,10 +256,10 @@ export const AdminDashboard: React.FC = () => {
               return (
                 <div
                   key={i}
-                  className="relative group flex-1 bg-gray-500 dark:bg-gray-400 rounded-t hover:bg-black dark:hover:bg-white transition-all duration-500"
+                  className="relative group flex-1 bg-gray-500 dark:bg-gray-400 rounded-t hover:bg-navalBlue dark:hover:bg-white transition-all duration-500"
                   style={{ height: `${height}%` }}
                 >
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black dark:bg-white text-white dark:text-black text-[9px] py-1 px-2 rounded">
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-navalBlue dark:bg-white text-white dark:text-navalBlue text-[9px] py-1 px-2 rounded">
                     {value.toFixed(0)} USD
                   </div>
                 </div>
@@ -277,13 +277,13 @@ export const AdminDashboard: React.FC = () => {
       {/* Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
         {/* Latest Orders */}
-        <div className="p-8 md:p-12 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/20">
-          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-black">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             ÚLTIMAS ÓRDENES
           </h3>
           <div className="space-y-4">
             {latestOrders.map((order, i) => (
-              <div key={i} className="flex justify-between items-center py-2 border-b border-black/5 dark:border-white/5">
+              <div key={i} className="flex justify-between items-center py-2 border-b border-navalBlue/5 dark:border-white/5">
                 <span className="text-sm">{new Date(order.created_at).toLocaleDateString()}</span>
                 <span className="text-sm font-bold">{order.total ? `${order.total} USD` : '0 USD'}</span>
               </div>
@@ -292,13 +292,13 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Latest Consultations */}
-        <div className="p-8 md:p-12 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/20">
-          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-black">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+          <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             ÚLTIMAS CONSULTAS
           </h3>
           <div className="space-y-4">
             {latestConsultations.map((consult, i) => (
-              <div key={i} className="flex justify-between items-center py-2 border-b border-black/5 dark:border-white/5">
+              <div key={i} className="flex justify-between items-center py-2 border-b border-navalBlue/5 dark:border-white/5">
                 <span className="text-sm font-mono">{consult.name || consult.email}</span>
                 <span className="text-sm">{new Date(consult.created_at).toLocaleDateString()}</span>
                 <span className="text-sm">{consult.status}</span>
@@ -309,18 +309,18 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Monthly Performance Chart */}
-      <div className="p-8 md:p-12 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/20 flex flex-col">
-        <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-black">
+      <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20 flex flex-col">
+        <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
           RENDIMIENTO_MENSUAL
         </h3>
-        <div className="flex-1 flex items-end justify-between gap-4 h-48 w-full border-b border-black/10 dark:border-white/10 pb-4">
+        <div className="flex-1 flex items-end justify-between gap-4 h-48 w-full border-b border-navalBlue/10 dark:border-white/10 pb-4">
           {[40, 65, 30, 85, 50, 75, 90, 60, 45, 80, 55, 70].map((h, i) => (
             <div
               key={i}
-              className="relative group flex-1 bg-gray-500 dark:bg-gray-400 rounded-t hover:bg-black dark:hover:bg-white transition-all duration-500"
+              className="relative group flex-1 bg-gray-500 dark:bg-gray-400 rounded-t hover:bg-navalBlue dark:hover:bg-white transition-all duration-500"
               style={{ height: `${h}%` }}
             >
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black dark:bg-white text-white dark:text-black text-[9px] py-1 px-2 rounded">
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-navalBlue dark:bg-white text-white dark:text-navalBlue text-[9px] py-1 px-2 rounded">
                 {h}%
               </div>
             </div>

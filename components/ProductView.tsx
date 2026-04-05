@@ -188,14 +188,14 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
     <div
       ref={modalRef}
       data-lenis-prevent
-      className="fixed inset-0 z-[50000] bg-black overflow-y-auto animate-in fade-in duration-700"
+      className="fixed inset-0 z-[50000] bg-navalBlue overflow-y-auto animate-in fade-in duration-700"
     >
-      <div className="fixed top-0 left-0 w-full h-24 bg-black z-[-1]" />
+      <div className="fixed top-0 left-0 w-full h-24 bg-navalBlue z-[-1]" />
       {/* Fullscreen Image Modal */}
 
       {lightbox && (
         <div
-          className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out animate-in fade-in zoom-in-95 duration-300"
+          className="fixed inset-0 z-[200] bg-navalBlue/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out animate-in fade-in zoom-in-95 duration-300"
           onClick={() => setLightbox(null)}
         >
           <button className="absolute top-10 right-10 text-white hover:rotate-90 transition-transform duration-300 z-[220]">
@@ -312,7 +312,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
           alt={product.name}
           className="absolute inset-0 w-full h-full object-cover scale-105 animate-in fade-in duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-navalBlue via-navalBlue/20 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 w-full">
           <h1 className="font-futuristic text-5xl md:text-[10rem] leading-[0.85] tracking-tighter mb-8 font-extralight uppercase pointer-events-none">
@@ -325,7 +325,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
         </div>
       </section>
 
-      <section className="bg-white text-black py-32 px-8 md:px-20">
+      <section className="bg-pullmanBrown text-white py-32 px-8 md:px-20">
         <div className="max-w-5xl mx-auto flex flex-col gap-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div className="space-y-16">
@@ -338,7 +338,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 </p>
                 <div className="grid grid-cols-2 gap-12">
                   {product.specs.map((spec, i) => (
-                    <div key={i} className="border-t border-black/10 pt-6">
+                    <div key={i} className="border-t border-navalBlue/10 pt-6">
                       <span className="font-futuristic text-[9px] tracking-widest text-neutral-600 block mb-2">
                         {spec.label}
                       </span>
@@ -400,7 +400,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       setIsOpen(true);
                       onClose();
                     }}
-                    className="bg-black text-white px-8 py-3 rounded-full hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 font-futuristic text-xs tracking-widest uppercase"
+                    className="bg-pullmanBrown text-white px-8 py-3 rounded-full hover:bg-pullmanBrown/90 transition-colors flex items-center justify-center gap-2 font-futuristic text-xs tracking-widest uppercase"
                     aria-label="Agregar al carrito"
                   >
                     AGREGAR AL CARRITO
@@ -408,9 +408,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 </div>
               </div>
 
-              <div className="text-[10px] text-neutral-600 font-light space-y-2 pt-4 border-t border-black/5">
+              <div className="text-[10px] text-neutral-600 font-light space-y-2 pt-4 border-t border-navalBlue/5">
                 <textarea
-                  className="w-full bg-transparent border border-black/10 p-3 text-xs font-light text-neutral-600 outline-none focus:border-black/30 transition-colors resize-none mb-2"
+                  className="w-full bg-transparent border border-navalBlue/10 p-3 text-xs font-light text-neutral-600 outline-none focus:border-navalBlue/30 transition-colors resize-none mb-2"
                   rows={3}
                   value={customMessage}
                   onChange={(e) => setCustomMessage(e.target.value)}
@@ -425,7 +425,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                         "_blank",
                       );
                     }}
-                    className="flex-1 py-3 border border-black/10 hover:bg-black hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
+                    className="flex-1 py-3 border border-navalBlue/10 hover:bg-navalBlue hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
                   >
                     <svg
                       className="w-4 h-4"
@@ -446,7 +446,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       });
                       window.dispatchEvent(event);
                     }}
-                    className="flex-1 py-3 border border-black/10 hover:bg-black hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
+                    className="flex-1 py-3 border border-navalBlue/10 hover:bg-navalBlue hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
                   >
                     <svg
                       className="w-4 h-4"
@@ -476,7 +476,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
             {allImages.map((img, idx) => (
               <div
                 key={idx}
-                className="aspect-video bg-neutral-100 overflow-hidden group border border-black/5 cursor-pointer"
+                className="aspect-video bg-neutral-100 overflow-hidden group border border-navalBlue/5 cursor-pointer"
                 onClick={() => setLightbox({ src: img, index: idx })} 
               >
                 <img
@@ -489,7 +489,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
           </div>
 
           {/* AI Room Visualizer Section */}
-          <div className="border-t border-black/10 pt-24">
+          <div className="border-t border-navalBlue/10 pt-24">
             <h3 className="font-futuristic text-[10px] tracking-[0.5em] text-neutral-600 mb-12 uppercase text-center">
               AI ROOM VISUALIZER
             </h3>
@@ -523,7 +523,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                     {/* Upload Box */}
                     <div
                       onClick={() => fileInputRef.current?.click()}
-                      className="aspect-video bg-neutral-50 border border-dashed border-black/20 hover:border-black transition-colors cursor-pointer flex flex-col items-center justify-center group relative overflow-hidden"
+                      className="aspect-video bg-neutral-50 border border-dashed border-navalBlue/20 hover:border-navalBlue transition-colors cursor-pointer flex flex-col items-center justify-center group relative overflow-hidden"
                     >
                       {userImage ? (
                         <img
@@ -570,7 +570,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                             value={clarification}
                             onChange={(e) => setClarification(e.target.value)}
                             placeholder="Describe el ambiente (ej: 'Minimalista, mucha luz, paredes blancas')..."
-                            className="w-full bg-neutral-50 border border-black/10 p-4 text-sm font-light focus:border-black focus:outline-none transition-colors min-h-[100px] resize-none"
+                            className="w-full bg-neutral-50 border border-navalBlue/10 p-4 text-sm font-light focus:border-navalBlue focus:outline-none transition-colors min-h-[100px] resize-none"
                           />
                         </div>
 
@@ -585,7 +585,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                                 id: "day",
                                 label: "DÍA",
                                 color: "bg-sky-300",
-                                text: "text-black",
+                                text: "text-navalBlue",
                               },
                               {
                                 id: "sunset",
@@ -596,14 +596,14 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                               {
                                 id: "night",
                                 label: "NOCHE",
-                                color: "bg-black",
+                                color: "bg-navalBlue",
                                 text: "text-white",
                               },
                             ].map((theme) => (
                               <button
                                 key={theme.id}
                                 onClick={() => setSelectedTheme(theme.id)}
-                                className={`relative py-4 border border-black/10 overflow-hidden group transition-all duration-300 ${selectedTheme === theme.id ? "border-transparent" : "bg-white"}`}
+                                className={`relative py-4 border border-navalBlue/10 overflow-hidden group transition-all duration-300 ${selectedTheme === theme.id ? "border-transparent" : "bg-white"}`}
                               >
                                 <div
                                   className={`absolute inset-0 transition-transform duration-500 ease-out ${selectedTheme === theme.id ? `translate-y-0 ${theme.color}` : `translate-y-full group-hover:translate-y-0 ${theme.color}`}`}
@@ -621,7 +621,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                         <button
                           onClick={handleVisualize}
                           disabled={isGenerating}
-                          className="w-full bg-black text-white py-6 font-futuristic text-[10px] tracking-[0.3em] uppercase hover:bg-neutral-800 transition-colors disabled:opacity-50"
+                          className="w-full bg-pullmanBrown text-white py-6 font-futuristic text-[10px] tracking-[0.3em] uppercase hover:bg-pullmanBrown/90 transition-colors disabled:opacity-50"
                         >
                           {isGenerating
                             ? "PROCESANDO_SIMULACIÓN..."
@@ -634,7 +634,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
               </div>
 
               {/* Result Column */}
-              <div className="aspect-square bg-neutral-100 relative overflow-hidden border border-black/5">
+              <div className="aspect-square bg-neutral-100 relative overflow-hidden border border-navalBlue/5">
                 {resultImage ? (
                   <div className="relative w-full h-full group">
                     <img
@@ -644,7 +644,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                     />
                     <button
                       onClick={handleDownload}
-                      className="absolute bottom-6 right-6 bg-white text-black p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-black hover:text-white"
+                      className="absolute bottom-6 right-6 bg-pullmanBrown text-white p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-navalBlue hover:text-white"
                     >
                       <svg
                         className="w-5 h-5"
@@ -671,7 +671,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
 
                 {isGenerating && (
                   <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-20 flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                    <div className="w-8 h-8 border-2 border-navalBlue border-t-transparent rounded-full animate-spin" />
                   </div>
                 )}
               </div>
@@ -695,11 +695,11 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
       {isConsultationOpen && (
         <div className="fixed inset-0 z-[60000] flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
             onClick={() => setIsConsultationOpen(false)}
           />
-          <div className="bg-white text-black w-full max-w-lg p-8 border border-neutral-200 shadow-2xl relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-300">
-            <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase border-b border-black/10 pb-4">
+          <div className="bg-pullmanBrown text-white w-full max-w-lg p-8 border border-neutral-200 shadow-2xl relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-300">
+            <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase border-b border-navalBlue/10 pb-4">
               SOLICITUD DE INFORMACIÓN TÉCNICA
             </h3>
 
@@ -722,7 +722,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 <input
                   autoFocus
                   placeholder="NOMBRE COMPLETO"
-                  className="w-full bg-neutral-50 border border-neutral-200 p-3 text-sm focus:border-black outline-none transition-colors"
+                  className="w-full bg-neutral-50 border border-neutral-200 p-3 text-sm focus:border-navalBlue outline-none transition-colors"
                   value={consultationForm.customerName}
                   onChange={(e) =>
                     setConsultationForm({
@@ -739,7 +739,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 </label>
                 <textarea
                   placeholder="DETALLE DE LA CONSULTA..."
-                  className="w-full bg-neutral-50 border border-neutral-200 p-3 text-sm focus:border-black outline-none transition-colors min-h-[120px] resize-none"
+                  className="w-full bg-neutral-50 border border-neutral-200 p-3 text-sm focus:border-navalBlue outline-none transition-colors min-h-[120px] resize-none"
                   value={consultationForm.query}
                   onChange={(e) =>
                     setConsultationForm({
@@ -754,13 +754,13 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
             <div className="flex gap-4 justify-end mt-8 pt-4 border-t border-neutral-100">
               <button
                 onClick={() => setIsConsultationOpen(false)}
-                className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black transition-colors"
+                className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue transition-colors"
               >
                 CANCELAR
               </button>
               <button
                 onClick={handleConsultationSubmit}
-                className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-black text-white hover:opacity-80 transition-opacity"
+                className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-pullmanBrown text-white hover:opacity-80 transition-opacity"
               >
                 ENVIAR SOLICITUD
               </button>

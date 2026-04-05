@@ -41,7 +41,7 @@ const AIConsultant: React.FC = () => {
   return (
     <section
       id="ai"
-      className="py-32 px-6 relative bg-white text-black overflow-hidden"
+      className="py-32 px-6 relative bg-pullmanBrown text-white overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-1/2 h-full bg-neutral-100/50 -skew-x-12 z-0"></div>
 
@@ -60,10 +60,10 @@ const AIConsultant: React.FC = () => {
             Our neural consultant analyzes your architectural layout to propose
             optimal window treatments.
           </p>
-          <div className="w-24 h-[1px] bg-black"></div>
+          <div className="w-24 h-[1px] bg-navalBlue"></div>
         </div>
 
-        <div className="bg-white border border-black/10 p-8 shadow-2xl flex flex-col h-[600px]">
+        <div className="bg-white border border-navalBlue/10 p-8 shadow-2xl flex flex-col h-[600px]">
           <div
             ref={scrollRef}
             className="flex-1 overflow-y-auto mb-6 space-y-6 pr-4"
@@ -74,7 +74,7 @@ const AIConsultant: React.FC = () => {
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] p-4 text-sm font-light tracking-wide ${m.role === "user" ? "bg-black text-white" : "bg-neutral-100 text-black"}`}
+                  className={`max-w-[85%] p-4 text-sm font-light tracking-wide ${m.role === "user" ? "bg-navalBlue text-white" : "bg-neutral-100 text-navalBlue"}`}
                 >
                   {m.text}
                 </div>
@@ -95,11 +95,11 @@ const AIConsultant: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSend()}
               placeholder="Describe your living room lighting..."
-              className="flex-1 bg-transparent border-b border-black/20 focus:border-black outline-none py-3 px-4 text-sm font-light"
+              className="flex-1 bg-transparent border-b border-navalBlue/20 focus:border-navalBlue outline-none py-3 px-4 text-sm font-light"
             />
             <button
               onClick={handleSend}
-              className="px-8 py-3 bg-black text-white font-futuristic text-[10px] tracking-widest hover:bg-neutral-800 transition-colors"
+              className="px-8 py-3 bg-pullmanBrown text-white font-futuristic text-[10px] tracking-widest hover:bg-pullmanBrown/90 transition-colors"
             >
               SEND
             </button>

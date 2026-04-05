@@ -109,13 +109,13 @@ const FloatingAssistant: React.FC = () => {
     >
       {/* Ventana de Chat con Transiciones Smooth */}
       <div
-        className={`mb-4 md:mb-6 w-[calc(100vw-2rem)] md:w-[400px] h-[60vh] md:h-[450px] bg-white/95 backdrop-blur-2xl text-black shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col border-none origin-bottom-right transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-t-2xl rounded-b-none ${
+        className={`mb-4 md:mb-6 w-[calc(100vw-2rem)] md:w-[400px] h-[60vh] md:h-[450px] bg-white/95 backdrop-blur-2xl text-navalBlue shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col border-none origin-bottom-right transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-t-2xl rounded-b-none ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-90 translate-y-10 pointer-events-none"
         }`}
       >
-        <div className="p-6 border-b border-transparent flex justify-between items-center bg-black text-white">
+        <div className="p-6 border-b border-transparent flex justify-between items-center bg-navalBlue text-white">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             <span className="font-futuristic text-[9px] tracking-[0.4em]">
@@ -155,8 +155,8 @@ const FloatingAssistant: React.FC = () => {
               <div
                 className={`max-w-[85%] p-4 text-[13px] font-light leading-relaxed shadow-sm ${
                   m.role === "user"
-                    ? "bg-black text-white rounded-l-2xl rounded-tr-2xl"
-                    : "bg-neutral-100 text-black rounded-r-2xl rounded-tl-2xl"
+                    ? "bg-navalBlue text-white rounded-l-2xl rounded-tr-2xl"
+                    : "bg-neutral-100 text-navalBlue rounded-r-2xl rounded-tl-2xl"
                 }`}
               >
                 {m.role === "model" ? (
@@ -204,11 +204,11 @@ const FloatingAssistant: React.FC = () => {
           ))}
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-neutral-50 p-4 rounded-2xl rounded-tl-none border border-black/5">
+              <div className="bg-neutral-50 p-4 rounded-2xl rounded-tl-none border border-navalBlue/5">
                 <div className="flex gap-1">
-                  <div className="w-1.5 h-1.5 bg-black/20 rounded-full animate-bounce"></div>
-                  <div className="w-1.5 h-1.5 bg-black/20 rounded-full animate-bounce [animation-delay:0.2s]"></div>
-                  <div className="w-1.5 h-1.5 bg-black/20 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce [animation-delay:0.4s]"></div>
                 </div>
               </div>
             </div>
@@ -222,10 +222,10 @@ const FloatingAssistant: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Describa su visión arquitectónica..."
-              className="w-full text-xs font-light outline-none bg-white border border-black/10 rounded-full py-4 pl-6 pr-14 focus:border-black/30 shadow-inner transition-all"
+              className="w-full text-xs font-light outline-none bg-white border border-navalBlue/10 rounded-full py-4 pl-6 pr-14 focus:border-navalBlue/30 shadow-inner transition-all"
             />
             <button
-              className="absolute right-2 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg"
+              className="absolute right-2 w-10 h-10 bg-navalBlue text-white rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg"
               onClick={() => handleSend()}
             >
               <svg
@@ -254,8 +254,8 @@ const FloatingAssistant: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] shadow-2xl overflow-hidden group pointer-events-auto ${
           isOpen
-            ? "bg-white text-black scale-90 rotate-180"
-            : "bg-black text-white hover:scale-110"
+            ? "bg-pullmanBrown text-white scale-90 rotate-180"
+            : "bg-navalBlue text-white hover:scale-110"
         }`}
       >
         <div
@@ -278,7 +278,7 @@ const FloatingAssistant: React.FC = () => {
           </svg>
         ) : (
           <div className="relative">
-            <span className="font-futuristic text-xl tracking-tighter group-hover:text-black transition-colors duration-500">
+            <span className="font-futuristic text-xl tracking-tighter group-hover:text-navalBlue transition-colors duration-500">
               A
             </span>
             {/* Indicador de notificación */}

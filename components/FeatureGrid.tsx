@@ -37,12 +37,12 @@ const ExpandingGridRow: React.FC<{
             alt={p.name}
             containerClassName="absolute inset-0 w-full h-full"
           />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+          <div className="absolute inset-0 bg-navalBlue/30 group-hover:bg-navalBlue/10 transition-colors" />
 
           {/* Add to Cart Button on Hover */}
           <button
             onClick={(e) => handleAddToCart(e, p)}
-            className="absolute top-8 right-8 z-20 w-10 h-10 border border-white/30 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-black hover:scale-110"
+            className="absolute top-8 right-8 z-20 w-10 h-10 border border-white/30 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-navalBlue hover:scale-110"
             title="Agregar al Carrito"
           >
             <svg
@@ -378,7 +378,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
     return (
       <section
         id="showcase"
-        className="py-24 bg-[#050505] min-h-screen flex items-center justify-center"
+        className="py-24 bg-navyDark min-h-screen flex items-center justify-center"
       >
         <div className="font-futuristic text-xs tracking-[0.3em] text-neutral-500 animate-pulse">
           LOADING_COLLECTION...
@@ -390,7 +390,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
   return (
     <section
       id="showcase"
-      className={`${showAll ? "min-h-screen pt-0" : "py-24"} bg-[#050505] transition-all duration-1000 overflow-hidden relative group/showcase`}
+      className={`${showAll ? "min-h-screen pt-0" : "py-24"} bg-navyDark transition-all duration-1000 overflow-hidden relative group/showcase`}
     >
       {/* Admin Controls */}
       {isAdmin && (
@@ -515,7 +515,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
               alt="Collection Hero"
               className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale"
             />
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-navalBlue/60"></div>
           </div>
 
           <div
@@ -659,7 +659,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                             e.stopPropagation();
                             setFilter(f.id);
                           }}
-                          className={`relative z-[300] font-futuristic text-[11px] tracking-widest transition-all duration-300 cursor-pointer outline-none select-none px-4 py-3 bg-transparent md:bg-black/40 ${
+                          className={`relative z-[300] font-futuristic text-[11px] tracking-widest transition-all duration-300 cursor-pointer outline-none select-none px-4 py-3 bg-transparent md:bg-navalBlue/40 ${
                             filter === f.id
                               ? "text-white tracking-[0.25em] border-b border-white"
                               : "text-[#a3a3a3] hover:text-white border-b border-transparent hover:border-white/20"
@@ -797,7 +797,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                                         min: Number(e.target.value),
                                       }))
                                     }
-                                    className="bg-black/20 border border-white/10 text-white text-[10px] p-2 focus:border-white transition-colors outline-none font-mono w-full"
+                                    className="bg-navalBlue/20 border border-white/10 text-white text-[10px] p-2 focus:border-white transition-colors outline-none font-mono w-full"
                                   />
                                 </div>
                                 <div className="flex flex-col gap-1">
@@ -821,7 +821,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                                           : null,
                                       }))
                                     }
-                                    className="bg-black/20 border border-white/10 text-white text-[10px] p-2 focus:border-white transition-colors outline-none font-mono w-full"
+                                    className="bg-navalBlue/20 border border-white/10 text-white text-[10px] p-2 focus:border-white transition-colors outline-none font-mono w-full"
                                   />
                                 </div>
                               </div>
@@ -837,7 +837,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 w-full bg-black">
+        <div className="flex flex-col gap-1 w-full bg-navalBlue">
           {displayedChunks.map((chunk, idx) => (
             <ExpandingGridRow
               key={idx}
@@ -860,7 +860,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                 </span>
               </span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 -z-0"></div>
-              <span className="absolute inset-0 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 font-futuristic text-[10px] tracking-[0.5em]">
+              <span className="absolute inset-0 flex items-center justify-center text-navalBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 font-futuristic text-[10px] tracking-[0.5em]">
                 VER_TODO
               </span>
             </button>

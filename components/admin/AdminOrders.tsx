@@ -185,7 +185,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <h2 className="text-2xl font-light dark:text-white text-black">
+            <h2 className="text-2xl font-light dark:text-white text-navalBlue">
               ÓRDENES
             </h2>
             <p className="text-xs font-futuristic tracking-[0.2em] text-neutral-500 uppercase mt-1">
@@ -198,14 +198,14 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
               placeholder="Buscar orden, email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
+              className="bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
             />
             <button
               onClick={() => {
                 setEditingOrder(null);
                 setIsFormOpen(true);
               }}
-              className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="bg-navalBlue dark:bg-white text-white dark:text-navalBlue px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               + NUEVA ORDEN
             </button>
@@ -214,7 +214,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
 
         <div className="overflow-x-auto border border-neutral-200 dark:border-neutral-800 rounded-lg">
           <table className="w-full text-left">
-            <thead className="bg-neutral-50 dark:bg-neutral-900 text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
+            <thead className="bg-neutral-50 dark:bg-navalBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
               <tr>
                 <th className="px-6 py-4">ID</th>
                 <th className="px-6 py-4">Cliente</th>
@@ -245,7 +245,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
                   return (
                     <tr
                       key={order.id}
-                      className="group hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors"
+                      className="group hover:bg-neutral-50 dark:hover:bg-navalBlue/50 transition-colors"
                     >
                       <td className="px-6 py-4 font-mono text-xs opacity-50">
                         {order.id.slice(0, 8)}...
@@ -283,7 +283,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
                         <div className="flex justify-end gap-2 transition-opacity">
                           <button
                             onClick={() => handleEdit(order)}
-                            className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+                            className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
                           >
                             <svg
                               className="w-4 h-4"
@@ -347,7 +347,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
                   setCurrentPage((p) => Math.min(totalPages, p + 1))
                 }
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-black dark:bg-white text-white dark:text-black hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
+                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
               >
                 Next
               </button>
@@ -490,14 +490,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onClose}
       />
 
-      <div className="bg-white dark:bg-[#0A0A0A] w-full max-w-4xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto flex flex-col md:flex-row gap-8">
+      <div className="bg-white dark:bg-navyDark w-full max-w-4xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto flex flex-col md:flex-row gap-8">
         {/* Left Col: Order Details */}
         <div className="flex-1 space-y-6">
-          <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase dark:text-white text-black border-b border-neutral-100 dark:border-neutral-900 pb-4">
+          <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase dark:text-white text-navalBlue border-b border-neutral-100 dark:border-navalBlue pb-4">
             {order ? "EDITAR ORDEN" : "NUEVA ORDEN"}
           </h3>
 
@@ -507,7 +507,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Nombre
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.firstName}
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
@@ -519,7 +519,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Apellido
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.lastName}
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
@@ -531,7 +531,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Email
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -543,7 +543,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Dirección
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.address}
                 onChange={(e) =>
                   setFormData({ ...formData, address: e.target.value })
@@ -555,7 +555,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Ciudad
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.city}
                 onChange={(e) =>
                   setFormData({ ...formData, city: e.target.value })
@@ -567,7 +567,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Estado
               </label>
               <select
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none appearance-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none appearance-none"
                 value={formData.status}
                 onChange={(e) =>
                   setFormData({
@@ -588,7 +588,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
         {/* Right Col: Items & Product Selector */}
         <div className="flex-1 space-y-6 flex flex-col">
-          <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase dark:text-white text-black border-b border-neutral-100 dark:border-neutral-900 pb-4">
+          <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase dark:text-white text-navalBlue border-b border-neutral-100 dark:border-navalBlue pb-4">
             ITEMS DEL PEDIDO
           </h3>
 
@@ -596,7 +596,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <div className="relative">
             <input
               placeholder="Buscar producto..."
-              className="w-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-3 text-sm outline-none focus:border-black dark:focus:border-white"
+              className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 p-3 text-sm outline-none focus:border-navalBlue dark:focus:border-white"
               value={productSearch}
               onChange={(e) => {
                 setProductSearch(e.target.value);
@@ -605,7 +605,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
               onFocus={() => setIsProductListOpen(true)}
             />
             {isProductListOpen && productSearch && (
-              <div className="absolute top-full left-0 right-0 max-h-[300px] overflow-y-auto bg-white dark:bg-neutral-900 border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
+              <div className="absolute top-full left-0 right-0 max-h-[300px] overflow-y-auto bg-white dark:bg-navalBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
@@ -633,7 +633,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             {formData.items?.map((item, idx) => (
               <div
                 key={`${item.product_id || "new"}-${idx}`}
-                className="bg-neutral-50 dark:bg-neutral-900 p-3 rounded flex gap-3 items-start group relative"
+                className="bg-neutral-50 dark:bg-navalBlue p-3 rounded flex gap-3 items-start group relative"
               >
                 <img
                   src={item.product_image}
@@ -654,7 +654,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     </label>
                     <input
                       type="number"
-                      className="w-12 p-1 text-xs bg-transparent border-b border-neutral-200 dark:border-neutral-700 text-center focus:border-black dark:focus:border-white outline-none transition-colors"
+                      className="w-12 p-1 text-xs bg-transparent border-b border-neutral-200 dark:border-neutral-700 text-center focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
                       value={item.quantity}
                       onChange={(e) =>
                         updateItemQuantity(idx, parseInt(e.target.value))
@@ -666,7 +666,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     </label>
                     <input
                       type="text"
-                      className="flex-1 p-1 text-xs bg-transparent border-b border-neutral-200 dark:border-neutral-700 focus:border-black dark:focus:border-white outline-none transition-colors placeholder-neutral-400"
+                      className="flex-1 p-1 text-xs bg-transparent border-b border-neutral-200 dark:border-neutral-700 focus:border-navalBlue dark:focus:border-white outline-none transition-colors placeholder-neutral-400"
                       placeholder="Opcional..."
                       value={item.note || ""}
                       onChange={(e) => updateItemNote(idx, e.target.value)}
@@ -710,13 +710,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <div className="flex gap-4 justify-end pt-4">
             <button
               onClick={onClose}
-              className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors border border-transparent hover:border-neutral-200 rounded"
+              className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors border border-transparent hover:border-neutral-200 rounded"
             >
               CANCELAR
             </button>
             <button
               onClick={() => onSave(formData)}
-              className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-black dark:bg-white text-white dark:text-black hover:opacity-80 transition-opacity rounded"
+              className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 transition-opacity rounded"
             >
               GUARDAR ORDEN
             </button>
@@ -743,10 +743,10 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onCancel}
       />
-      <div className="bg-white dark:bg-[#0A0A0A] w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+      <div className="bg-white dark:bg-navyDark w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
         <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase text-red-600 dark:text-red-500">
           {title}
         </h3>
@@ -756,7 +756,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         <div className="flex gap-4 justify-end">
           <button
             onClick={onCancel}
-            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
           >
             CANCELAR
           </button>

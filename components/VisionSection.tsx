@@ -102,7 +102,7 @@ const VisionSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="h-[80vh] relative flex items-center justify-center bg-black overflow-hidden group/vision"
+      className="h-[80vh] relative flex items-center justify-center bg-navalBlue overflow-hidden group/vision"
     >
       {/* Admin Controls */}
       {isAdmin && (

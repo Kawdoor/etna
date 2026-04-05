@@ -72,7 +72,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     <div className="relative group inline-block w-full">
       {/* Floating Toolbar - Visible only when focused or hovering */}
       <div
-        className={`absolute -top-12 left-0 flex gap-2 bg-black/80 backdrop-blur-md px-3 py-2 rounded-lg transition-all duration-300 z-50 ${isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
+        className={`absolute -top-12 left-0 flex gap-2 bg-navalBlue/80 backdrop-blur-md px-3 py-2 rounded-lg transition-all duration-300 z-50 ${isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
       >
         <button
           onMouseDown={(e) => {
@@ -110,7 +110,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           </button>
           
           {showSizeMenu && (
-            <div className="absolute top-full left-0 mt-2 bg-black/90 backdrop-blur-md border border-white/10 rounded overflow-hidden flex flex-col min-w-[2rem] shadow-xl">
+            <div className="absolute top-full left-0 mt-2 bg-navalBlue/90 backdrop-blur-md border border-white/10 rounded overflow-hidden flex flex-col min-w-[2rem] shadow-xl">
               {[1, 2, 3, 4, 5, 6, 7].map((size) => (
                 <button
                   key={size}

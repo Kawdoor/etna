@@ -271,7 +271,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
         {isBulkEditOpen && (
           <div className="fixed inset-0 z-[60000] flex items-center justify-center p-4">
             <div
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-navalBlue/80 backdrop-blur-sm"
               onClick={() => setIsBulkEditOpen(false)}
             />
             <div className="bg-white dark:bg-[#111] p-8 w-full max-w-md relative z-10 rounded-xl border border-neutral-200 dark:border-white/10 shadow-2xl space-y-6">
@@ -290,7 +290,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                     onClick={() =>
                       setBulkAction((prev) => ({ ...prev, type: "increase" }))
                     }
-                    className={`p-3 text-[10px] font-futuristic tracking-widest border transition-all ${bulkAction.type === "increase" ? "bg-black text-white dark:bg-white dark:text-black border-transparent" : "border-neutral-200 dark:border-white/20 text-neutral-500"}`}
+                    className={`p-3 text-[10px] font-futuristic tracking-widest border transition-all ${bulkAction.type === "increase" ? "bg-navalBlue text-white dark:bg-white dark:text-navalBlue border-transparent" : "border-neutral-200 dark:border-white/20 text-neutral-500"}`}
                   >
                     AUMENTAR (+)
                   </button>
@@ -298,7 +298,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                     onClick={() =>
                       setBulkAction((prev) => ({ ...prev, type: "decrease" }))
                     }
-                    className={`p-3 text-[10px] font-futuristic tracking-widest border transition-all ${bulkAction.type === "decrease" ? "bg-black text-white dark:bg-white dark:text-black border-transparent" : "border-neutral-200 dark:border-white/20 text-neutral-500"}`}
+                    className={`p-3 text-[10px] font-futuristic tracking-widest border transition-all ${bulkAction.type === "decrease" ? "bg-navalBlue text-white dark:bg-white dark:text-navalBlue border-transparent" : "border-neutral-200 dark:border-white/20 text-neutral-500"}`}
                   >
                     DISMINUIR (-)
                   </button>
@@ -337,7 +337,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                       }))
                     }
                     placeholder="0.00"
-                    className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-4 text-xl font-light outline-none focus:border-black dark:focus:border-white transition-colors"
+                    className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-4 text-xl font-light outline-none focus:border-navalBlue dark:focus:border-white transition-colors"
                   />
                 </div>
               </div>
@@ -345,13 +345,13 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
               <div className="pt-6 flex gap-3">
                 <button
                   onClick={handleBulkEdit}
-                  className="flex-1 bg-black text-white dark:bg-white dark:text-black py-4 text-[10px] font-futuristic tracking-widest hover:opacity-90 transition-opacity"
+                  className="flex-1 bg-navalBlue text-white dark:bg-white dark:text-navalBlue py-4 text-[10px] font-futuristic tracking-widest hover:opacity-90 transition-opacity"
                 >
                   CONFIRMAR CAMBIOS
                 </button>
                 <button
                   onClick={() => setIsBulkEditOpen(false)}
-                  className="px-6 border border-neutral-200 dark:border-white/10 text-neutral-500 hover:text-black dark:hover:text-white transition-colors text-[10px] font-futuristic tracking-widest"
+                  className="px-6 border border-neutral-200 dark:border-white/10 text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors text-[10px] font-futuristic tracking-widest"
                 >
                   CANCELAR
                 </button>
@@ -390,7 +390,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <h2 className="text-2xl font-light dark:text-white text-black">
+            <h2 className="text-2xl font-light dark:text-white text-navalBlue">
               Inventario
             </h2>
             <p className="text-xs font-futuristic tracking-[0.2em] text-neutral-500 uppercase mt-1">
@@ -417,7 +417,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
             {!isSelectionMode ? (
               <button
                 onClick={() => setIsSelectionMode(true)}
-                className="bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white px-4 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity"
+                className="bg-neutral-100 dark:bg-neutral-800 text-navalBlue dark:text-white px-4 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity"
               >
                 BULK SELECT
               </button>
@@ -437,12 +437,12 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
               placeholder="Buscar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64"
+              className="bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64"
             />
-            <div className="flex bg-neutral-100 dark:bg-neutral-900 rounded p-1">
+            <div className="flex bg-neutral-100 dark:bg-navalBlue rounded p-1">
               <button
                 onClick={() => setViewMode("table")}
-                className={`p-2 rounded transition-all ${viewMode === "table" ? "bg-white dark:bg-black shadow-sm" : "text-neutral-500 hover:text-black dark:hover:text-white"}`}
+                className={`p-2 rounded transition-all ${viewMode === "table" ? "bg-white dark:bg-navalBlue shadow-sm" : "text-neutral-500 hover:text-navalBlue dark:hover:text-white"}`}
               >
                 <svg
                   className="w-4 h-4"
@@ -460,7 +460,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
               </button>
               <button
                 onClick={() => setViewMode("grid")}
-                className={`p-2 rounded transition-all ${viewMode === "grid" ? "bg-white dark:bg-black shadow-sm" : "text-neutral-500 hover:text-black dark:hover:text-white"}`}
+                className={`p-2 rounded transition-all ${viewMode === "grid" ? "bg-white dark:bg-navalBlue shadow-sm" : "text-neutral-500 hover:text-navalBlue dark:hover:text-white"}`}
               >
                 <svg
                   className="w-4 h-4"
@@ -479,7 +479,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
             </div>
             <button
               onClick={handleExportCSV}
-              className="bg-neutral-800 text-white dark:bg-neutral-200 dark:text-black px-4 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="bg-neutral-800 text-white dark:bg-neutral-200 dark:text-navalBlue px-4 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               EXPORTAR
             </button>
@@ -488,7 +488,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                 setEditingProduct(null);
                 setIsModalOpen(true);
               }}
-              className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="bg-navalBlue dark:bg-white text-white dark:text-navalBlue px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               + NUEVO
             </button>
@@ -498,7 +498,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
         {viewMode === "table" ? (
           <div className="overflow-x-auto border border-neutral-200 dark:border-neutral-800 rounded-lg">
             <table className="w-full text-left">
-              <thead className="bg-neutral-50 dark:bg-neutral-900 text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
+              <thead className="bg-neutral-50 dark:bg-navalBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
                 <tr>
                   {isSelectionMode && (
                     <th className="px-6 py-4 animate-in fade-in zoom-in duration-300">
@@ -561,7 +561,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                   paginatedProducts.map((product) => (
                     <tr
                       key={product.id}
-                      className={`group hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors ${selectedProducts.includes(product.id) ? "bg-blue-50/50 dark:bg-blue-900/10" : ""}`}
+                      className={`group hover:bg-neutral-50 dark:hover:bg-navalBlue/50 transition-colors ${selectedProducts.includes(product.id) ? "bg-blue-50/50 dark:bg-blue-900/10" : ""}`}
                     >
                       {isSelectionMode && (
                         <td className="px-6 py-4 animate-in fade-in zoom-in duration-300">
@@ -589,7 +589,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <div className="font-medium text-sm dark:text-white text-black flex items-center gap-2">
+                        <div className="font-medium text-sm dark:text-white text-navalBlue flex items-center gap-2">
                           {product.name}
                           {product.visible === false && (
                             <span className="text-[8px] bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded uppercase tracking-wider font-futuristic">
@@ -681,7 +681,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
             {paginatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="group border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden bg-white dark:bg-neutral-900 transition-all hover:shadow-lg"
+                className="group border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden bg-white dark:bg-navalBlue transition-all hover:shadow-lg"
               >
                 <div className="aspect-square relative overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                   <img
@@ -694,7 +694,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                       Oculto
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 flex gap-1 bg-white/90 dark:bg-black/90 p-1 rounded backdrop-blur-sm transition-opacity">
+                  <div className="absolute top-2 right-2 flex gap-1 bg-white/90 dark:bg-navalBlue/90 p-1 rounded backdrop-blur-sm transition-opacity">
                     <button
                       onClick={() => {
                         setEditingProduct(product);
@@ -738,7 +738,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                 </div>
                 <div className="p-4 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h4 className="font-medium text-sm dark:text-white text-black line-clamp-1">
+                    <h4 className="font-medium text-sm dark:text-white text-navalBlue line-clamp-1">
                       {product.name}
                     </h4>
                     <span className="text-[9px] font-futuristic uppercase bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">
@@ -790,7 +790,7 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
                   setCurrentPage((p) => Math.min(totalPages, p + 1))
                 }
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-black dark:bg-white text-white dark:text-black hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
+                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
               >
                 Next
               </button>
@@ -954,7 +954,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onClose}
       />
       <div className="bg-white dark:bg-[#111] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row animate-in zoom-in-95 duration-300 relative z-10">
@@ -967,7 +967,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             </div>
           )}
           <div className="flex justify-between items-start">
-            <h3 className="font-futuristic text-xl tracking-widest uppercase dark:text-white text-black">
+            <h3 className="font-futuristic text-xl tracking-widest uppercase dark:text-white text-navalBlue">
               {product ? "EDITAR_PRODUCTO" : "NUEVO_PRODUCTO"}
             </h3>
             <button
@@ -1000,7 +1000,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className={`w-full bg-neutral-100 dark:bg-black border ${errors.name ? "border-red-500" : "border-neutral-200 dark:border-white/10"} p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors`}
+                className={`w-full bg-neutral-100 dark:bg-navalBlue border ${errors.name ? "border-red-500" : "border-neutral-200 dark:border-white/10"} p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors`}
               />
               {errors.name && (
                 <span className="text-[9px] text-red-500 font-futuristic tracking-widest">
@@ -1020,7 +1020,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                     category: e.target.value as Product["category"],
                   })
                 }
-                className="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-black dark:focus:border-white outline-none appearance-none"
+                className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none appearance-none"
               >
                 <option value="pendant">Pendant (Suspensión)</option>
                 <option value="floor">Floor (Pie)</option>
@@ -1045,7 +1045,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                   })
                 }
                 placeholder="0.00"
-                className="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors"
+                className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
               />
             </div>
             <div className="col-span-6 md:col-span-3 space-y-2">
@@ -1064,7 +1064,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                   })
                 }
                 placeholder="Opcional"
-                className="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors border-blue-500/20"
+                className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors border-blue-500/20"
               />
             </div>
             <div className="col-span-6 md:col-span-3 space-y-2">
@@ -1080,7 +1080,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                     stock: parseInt(e.target.value) || 0,
                   })
                 }
-                className="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors"
+                className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
               />
             </div>
 
@@ -1130,7 +1130,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={(e) =>
                   setFormData({ ...formData, description: e.target.value })
                 }
-                className={`w-full bg-neutral-100 dark:bg-black border ${errors.description ? "border-red-500" : "border-neutral-200 dark:border-white/10"} p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors`}
+                className={`w-full bg-neutral-100 dark:bg-navalBlue border ${errors.description ? "border-red-500" : "border-neutral-200 dark:border-white/10"} p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors`}
               />
               {errors.description && (
                 <span className="text-[9px] text-red-500 font-futuristic tracking-widest">
@@ -1148,7 +1148,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                   setFormData({ ...formData, longDescription: e.target.value })
                 }
                 rows={4}
-                className="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-black dark:focus:border-white outline-none transition-colors resize-none"
+                className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded focus:border-navalBlue dark:focus:border-white outline-none transition-colors resize-none"
               />
             </div>
           </div>
@@ -1212,12 +1212,12 @@ const ProductForm: React.FC<ProductFormProps> = ({
                   onDrop={(e) => handleReorderDrop(e, idx)}
                   className={`relative aspect-square rounded transition-all duration-300 overflow-hidden group border cursor-move ${
                     idx === 0
-                      ? "border-2 border-black dark:border-white shadow-lg ring-2 ring-offset-2 ring-transparent"
+                      ? "border-2 border-navalBlue dark:border-white shadow-lg ring-2 ring-offset-2 ring-transparent"
                       : "border-neutral-200 dark:border-white/10"
                   } ${draggedImageIndex === idx ? "opacity-30 scale-95" : "opacity-100 hover:scale-[1.02]"}`}
                 >
                   {idx === 0 && (
-                    <span className="absolute top-0 left-0 bg-black dark:bg-white text-white dark:text-black text-[9px] font-futuristic tracking-widest px-2 py-1 z-10">
+                    <span className="absolute top-0 left-0 bg-navalBlue dark:bg-white text-white dark:text-navalBlue text-[9px] font-futuristic tracking-widest px-2 py-1 z-10">
                       MAIN
                     </span>
                   )}
@@ -1235,7 +1235,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                         };
                       })
                     }
-                    className="absolute top-1 right-1 bg-black/50 hover:bg-red-600 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all z-20"
+                    className="absolute top-1 right-1 bg-navalBlue/50 hover:bg-red-600 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all z-20"
                   >
                     <svg
                       className="w-3 h-3"
@@ -1261,7 +1261,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
         </div>
 
         {/* Actions Footer / Sidebar on desktop */}
-        <div className="p-8 bg-neutral-50 dark:bg-neutral-900 border-t md:border-t-0 md:border-l border-neutral-200 dark:border-white/10 flex flex-col gap-4 min-w-[250px]">
+        <div className="p-8 bg-neutral-50 dark:bg-navalBlue border-t md:border-t-0 md:border-l border-neutral-200 dark:border-white/10 flex flex-col gap-4 min-w-[250px]">
           <div className="space-y-4 flex-1">
             <div className="space-y-2">
               <label className="text-[10px] font-futuristic tracking-widest uppercase opacity-50">
@@ -1272,7 +1272,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={(e) =>
                   setFormData({ ...formData, tag: e.target.value })
                 }
-                className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-white/10 p-3 rounded"
+                className="w-full bg-white dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 rounded"
               />
             </div>
 
@@ -1332,7 +1332,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
             <button
               type="button"
               onClick={handleValidateAndSave}
-              className="flex-1 py-3 text-[10px] font-futuristic tracking-widest bg-black dark:bg-white text-white dark:text-black hover:opacity-80 transition-opacity"
+              className="flex-1 py-3 text-[10px] font-futuristic tracking-widest bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 transition-opacity"
             >
               GUARDAR CAMBIOS
             </button>
@@ -1359,10 +1359,10 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onCancel}
       />
-      <div className="bg-white dark:bg-[#0A0A0A] w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+      <div className="bg-white dark:bg-navyDark w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
         <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase text-red-600 dark:text-red-500">
           {title}
         </h3>
@@ -1372,7 +1372,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         <div className="flex gap-4 justify-end">
           <button
             onClick={onCancel}
-            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
           >
             CANCELAR
           </button>

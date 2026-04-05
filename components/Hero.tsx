@@ -233,7 +233,7 @@ const Hero: React.FC = () => {
            <FloatingGeometryHero />
         )}
         
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-navalBlue/80 via-transparent to-navalBlue pointer-events-none"></div>
       </div>
 
       <div
@@ -295,7 +295,7 @@ const Hero: React.FC = () => {
           >
             <span className="relative z-10">EXPLORAR_COLECCIÓN</span>
             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-            <span className="absolute inset-0 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 font-futuristic text-[9px] tracking-[0.4em]">
+            <span className="absolute inset-0 flex items-center justify-center text-navalBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 font-futuristic text-[9px] tracking-[0.4em]">
               COLECCIÓN_LUMÍNICA
             </span>
           </a>

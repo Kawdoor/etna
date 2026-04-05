@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminOpen }) => {
   return (
     <footer
       id="contact"
-      className="bg-[#050505] text-white py-24 px-6 border-t border-white/5"
+      className="bg-pullmanBrown text-white py-24 px-6 border-t border-white/5"     
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
         <div className="col-span-1 md:col-span-2">

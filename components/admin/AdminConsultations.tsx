@@ -186,7 +186,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <h2 className="text-2xl font-light dark:text-white text-black">
+            <h2 className="text-2xl font-light dark:text-white text-navalBlue">
               CONSULTAS
             </h2>
             <p className="text-xs font-futuristic tracking-[0.2em] text-neutral-500 uppercase mt-1">
@@ -199,14 +199,14 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
               placeholder="Buscar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
+              className="bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
             />
             <button
               onClick={() => {
                 setEditingItem(null);
                 setIsFormOpen(true);
               }}
-              className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="bg-navalBlue dark:bg-white text-white dark:text-navalBlue px-6 py-2 text-[10px] font-futuristic tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               + NUEVA
             </button>
@@ -215,7 +215,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
 
         <div className="overflow-x-auto border border-neutral-200 dark:border-neutral-800 rounded-lg">
           <table className="w-full text-left">
-            <thead className="bg-neutral-50 dark:bg-neutral-900 text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
+            <thead className="bg-neutral-50 dark:bg-navalBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
               <tr>
                 <th className="px-6 py-4">Cliente</th>
                 <th className="px-6 py-4">Producto</th>
@@ -241,7 +241,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
                 paginatedConsultations.map((c) => (
                   <tr
                     key={c.id}
-                    className="group hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors"
+                    className="group hover:bg-neutral-50 dark:hover:bg-navalBlue/50 transition-colors"
                   >
                     <td className="px-6 py-4 text-sm font-medium">
                       {c.customerName}
@@ -273,7 +273,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
                       <div className="flex justify-end gap-2 transition-opacity">
                         <button
                           onClick={() => handleEdit(c)}
-                          className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+                          className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
                           title="Editar"
                         >
                           <svg
@@ -340,7 +340,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
                   setCurrentPage((p) => Math.min(totalPages, p + 1))
                 }
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-black dark:bg-white text-white dark:text-black hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
+                className="px-4 py-2 text-[10px] font-futuristic tracking-widest uppercase bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 disabled:opacity-30 disabled:hover:opacity-30 transition-opacity rounded"
               >
                 Next
               </button>
@@ -411,11 +411,11 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onClose}
       />
-      <div className="bg-white dark:bg-[#0A0A0A] w-full max-w-lg p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
-        <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase dark:text-white text-black border-b border-neutral-100 dark:border-neutral-900 pb-4">
+      <div className="bg-white dark:bg-navyDark w-full max-w-lg p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+        <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase dark:text-white text-navalBlue border-b border-neutral-100 dark:border-navalBlue pb-4">
           {item ? "EDITAR CONSULTA" : "NUEVA CONSULTA"}
         </h3>
 
@@ -427,7 +427,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
               </label>
               <input
                 placeholder="NOMBRE"
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none transition-colors"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
                 value={formData.customerName}
                 onChange={(e) =>
                   setFormData({ ...formData, customerName: e.target.value })
@@ -439,7 +439,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
                 Estado
               </label>
               <select
-                className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none transition-colors appearance-none"
+                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors appearance-none"
                 value={formData.status}
                 onChange={(e) =>
                   setFormData({
@@ -460,7 +460,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </label>
             <input
               placeholder="MODELO / REFERENCIA"
-              className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none transition-colors"
+              className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
               value={formData.productName}
               onFocus={() => setIsProductListOpen(true)}
               onBlur={() => setTimeout(() => setIsProductListOpen(false), 200)}
@@ -470,7 +470,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
               }}
             />
             {isProductListOpen && filteredProducts.length > 0 && (
-              <div className="absolute top-full left-0 right-0 max-h-[200px] overflow-y-auto bg-white dark:bg-neutral-900 border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
+              <div className="absolute top-full left-0 right-0 max-h-[200px] overflow-y-auto bg-white dark:bg-navalBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
@@ -500,7 +500,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </label>
             <textarea
               placeholder="DETALLE DE LA CONSULTA..."
-              className="w-full bg-neutral-50 dark:bg-black border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-black dark:focus:border-white outline-none transition-colors min-h-[120px] resize-none"
+              className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors min-h-[120px] resize-none"
               value={formData.query}
               onChange={(e) =>
                 setFormData({ ...formData, query: e.target.value })
@@ -509,16 +509,16 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
           </div>
         </div>
 
-        <div className="flex gap-4 justify-end mt-8 pt-4 border-t border-neutral-100 dark:border-neutral-900">
+        <div className="flex gap-4 justify-end mt-8 pt-4 border-t border-neutral-100 dark:border-navalBlue">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
           >
             CANCELAR
           </button>
           <button
             onClick={() => onSave(formData)}
-            className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-black dark:bg-white text-white dark:text-black hover:opacity-80 transition-opacity"
+            className="px-8 py-3 text-[10px] font-futuristic tracking-widest bg-navalBlue dark:bg-white text-white dark:text-navalBlue hover:opacity-80 transition-opacity"
           >
             GUARDAR
           </button>
@@ -544,10 +544,10 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-in fade-in duration-200">
       <div
-        className="absolute inset-0 bg-black/90 backdrop-blur-md"
+        className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onCancel}
       />
-      <div className="bg-white dark:bg-[#0A0A0A] w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+      <div className="bg-white dark:bg-navyDark w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
         <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase text-red-600 dark:text-red-500">
           {title}
         </h3>
@@ -557,7 +557,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         <div className="flex gap-4 justify-end">
           <button
             onClick={onCancel}
-            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+            className="px-6 py-3 text-[10px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
           >
             CANCELAR
           </button>

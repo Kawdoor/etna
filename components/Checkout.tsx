@@ -64,7 +64,7 @@ const Checkout: React.FC = () => {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 text-center pt-32">
+      <div className="min-h-screen bg-navalBlue text-white flex flex-col items-center justify-center p-6 text-center pt-32">
         <div className="max-w-md w-full animate-in fade-in zoom-in duration-700">
           <div className="w-20 h-20 border border-white/20 rounded-full flex items-center justify-center mx-auto mb-8 bg-white/5">
             <svg
@@ -90,7 +90,7 @@ const Checkout: React.FC = () => {
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="px-8 py-3 bg-white text-black font-futuristic text-xs tracking-[0.3em] hover:bg-neutral-200 transition-colors"
+            className="px-8 py-3 bg-pullmanBrown text-white font-futuristic text-xs tracking-[0.3em] hover:bg-pullmanBrown/90 transition-colors"
           >
             VOLVER AL INICIO
           </button>
@@ -100,7 +100,7 @@ const Checkout: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-navalBlue text-white pt-32 pb-24 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Form Section */}
         <div className="space-y-12">
@@ -124,7 +124,7 @@ const Checkout: React.FC = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none placeholder:text-neutral-800"
+                  className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none placeholder:text-neutral-800"
                   placeholder="NOMBRE"
                 />
               </div>
@@ -137,7 +137,7 @@ const Checkout: React.FC = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
+                  className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
                   placeholder="APELLIDO"
                 />
               </div>
@@ -153,7 +153,7 @@ const Checkout: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
+                className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
                 placeholder="CORREO ELECTRÓNICO"
               />
             </div>
@@ -167,7 +167,7 @@ const Checkout: React.FC = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
+                className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
                 placeholder="CALLE Y NÚMERO"
               />
             </div>
@@ -182,7 +182,7 @@ const Checkout: React.FC = () => {
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
+                  className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
                   placeholder="CIUDAD"
                 />
               </div>
@@ -195,7 +195,7 @@ const Checkout: React.FC = () => {
                   name="zipCode"
                   value={formData.zipCode}
                   onChange={handleChange}
-                  className="w-full bg-black border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
+                  className="w-full bg-navalBlue border-b border-white/20 py-3 text-white outline-none focus:border-white transition-colors rounded-none"
                   placeholder="CP"
                 />
               </div>
@@ -210,7 +210,7 @@ const Checkout: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-white text-black font-futuristic text-xs tracking-[0.3em] hover:bg-neutral-200 transition-colors mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-pullmanBrown text-white font-futuristic text-xs tracking-[0.3em] hover:bg-pullmanBrown/90 transition-colors mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "PROCESANDO..." : "CONFIRMAR PEDIDO"}
             </button>
@@ -227,7 +227,7 @@ const Checkout: React.FC = () => {
             <div className="space-y-6 mb-8">
               {items.map((item) => (
                 <div key={item.id} className="flex gap-4 group">
-                  <div className="w-16 h-20 bg-neutral-900 shrink-0 relative overflow-hidden">
+                  <div className="w-16 h-20 bg-navalBlue shrink-0 relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}

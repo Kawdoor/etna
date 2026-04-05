@@ -159,8 +159,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
 
   if (!isAuthenticated) {
     return (
-      <div className="fixed inset-0 z-[50000] bg-white dark:bg-black flex items-center justify-center p-6 animate-in fade-in duration-500 text-black dark:text-white">
-        <div className="max-w-md w-full p-12 border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-neutral-900 shadow-2xl relative">
+      <div className="fixed inset-0 z-[50000] bg-white dark:bg-navalBlue flex items-center justify-center p-6 animate-in fade-in duration-500 text-navalBlue dark:text-white">
+        <div className="max-w-md w-full p-12 border border-navalBlue/10 dark:border-white/10 bg-neutral-50 dark:bg-navalBlue shadow-2xl relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 opacity-50 hover:opacity-100"
@@ -192,7 +192,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white dark:bg-black border-b border-black/20 dark:border-white/20 py-3 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light text-black dark:text-white"
+                className="w-full bg-white dark:bg-navalBlue border-b border-navalBlue/20 dark:border-white/20 py-3 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light text-navalBlue dark:text-white"
                 placeholder="USER_ID"
               />
             </div>
@@ -205,20 +205,20 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                 autoFocus
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white dark:bg-black border-b border-black/20 dark:border-white/20 py-3 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light text-black dark:text-white"
+                className="w-full bg-white dark:bg-navalBlue border-b border-navalBlue/20 dark:border-white/20 py-3 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light text-navalBlue dark:text-white"
                 placeholder="******"
               />
             </div>
             <button
               disabled={isLoading}
-              className="w-full py-4 bg-black dark:bg-white text-white dark:text-black font-futuristic text-[10px] tracking-[0.3em] hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors disabled:opacity-50"
+              className="w-full py-4 bg-navalBlue dark:bg-white text-white dark:text-navalBlue font-futuristic text-[10px] tracking-[0.3em] hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors disabled:opacity-50"
             >
               {isLoading ? "VERIFYING..." : "VERIFY_IDENTITY"}
             </button>
             <button
               type="button"
               onClick={onClose}
-              className="w-full text-[9px] font-futuristic tracking-widest text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              className="w-full text-[9px] font-futuristic tracking-widest text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors"
             >
               CANCEL
             </button>
@@ -229,10 +229,10 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-[50000] bg-white dark:bg-black flex animate-in fade-in duration-700 text-black dark:text-white">
+    <div className="fixed inset-0 z-[50000] bg-white dark:bg-navalBlue flex animate-in fade-in duration-700 text-navalBlue dark:text-white">
       {/* Sidebar */}
       <aside
-        className={`${isSidebarCollapsed ? "w-20" : "w-72"} border-r border-black/5 dark:border-white/5 flex flex-col transition-all duration-300 ease-in-out bg-neutral-50 dark:bg-[#050505] shrink-0 overflow-visible relative z-20`}
+        className={`${isSidebarCollapsed ? "w-20" : "w-72"} border-r border-navalBlue/5 dark:border-white/5 flex flex-col transition-all duration-300 ease-in-out bg-neutral-50 dark:bg-navyDark shrink-0 overflow-visible relative z-20`}
       >
         <div
           className={`p-8 flex items-start ${isSidebarCollapsed ? "justify-center" : "justify-between"}`}
@@ -256,7 +256,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         {/* Floating Collapse Button (better UX) */}
         <button
           onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          className="absolute -right-3 top-9 z-50 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-full p-1 text-neutral-500 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all shadow-sm"
+          className="absolute -right-3 top-9 z-50 bg-white dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 rounded-full p-1 text-neutral-500 hover:text-navalBlue dark:hover:text-white hover:border-navalBlue dark:hover:border-white transition-all shadow-sm"
         >
           <svg
             className={`w-3 h-3 transition-transform duration-300 ${isSidebarCollapsed ? "rotate-180" : ""}`}
@@ -304,7 +304,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`w-full font-futuristic text-[9px] tracking-[0.4em] flex items-center transition-all py-3 relative group ${isSidebarCollapsed ? "justify-center px-0" : "justify-start px-8 gap-4"} ${activeTab === tab.id ? "text-black dark:text-white bg-black/5 dark:bg-white/5 border-r-2 border-black dark:border-white" : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/5 border-r-2 border-transparent"}`}
+              className={`w-full font-futuristic text-[9px] tracking-[0.4em] flex items-center transition-all py-3 relative group ${isSidebarCollapsed ? "justify-center px-0" : "justify-start px-8 gap-4"} ${activeTab === tab.id ? "text-navalBlue dark:text-white bg-navalBlue/5 dark:bg-white/5 border-r-2 border-navalBlue dark:border-white" : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 hover:bg-navalBlue/5 dark:hover:bg-white/5 border-r-2 border-transparent"}`}
             >
               <div className="relative overflow-visible">
                 <svg
@@ -359,7 +359,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
               </span>
 
               {isSidebarCollapsed && (
-                <div className="absolute left-full ml-4 bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white text-[9px] py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none shadow-xl rounded-r">
+                <div className="absolute left-full ml-4 bg-white dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 text-navalBlue dark:text-white text-[9px] py-2 px-3 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 pointer-events-none shadow-xl rounded-r">
                   {tab.label}
                 </div>
               )}
@@ -368,14 +368,14 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         </nav>
 
         {/* Theme Toggle */}
-        <div className="flex flex-col border-t border-black/5 dark:border-white/5">
+        <div className="flex flex-col border-t border-navalBlue/5 dark:border-white/5">
           <button
             onClick={() =>
               updateLocalConfig({
                 theme: config.theme === "dark" ? "light" : "dark",
               })
             }
-            className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-500 hover:text-black dark:hover:text-white transition-colors flex items-center py-6 hover:bg-black/5 dark:hover:bg-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
+            className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors flex items-center py-6 hover:bg-navalBlue/5 dark:hover:bg-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
             title={
               config.theme === "dark"
                 ? "Switch to Light Mode"
@@ -420,7 +420,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
 
           <button
             onClick={onClose}
-            className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-500 hover:text-black dark:hover:text-white transition-colors flex items-center py-6 hover:bg-black/5 dark:hover:bg-white/5 border-t border-black/5 dark:border-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
+            className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-500 hover:text-navalBlue dark:hover:text-white transition-colors flex items-center py-6 hover:bg-navalBlue/5 dark:hover:bg-white/5 border-t border-navalBlue/5 dark:border-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
             title="Volver al Sitio"
           >
             <svg
@@ -442,7 +442,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
 
         <button
           onClick={handleLogout}
-          className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-600 hover:text-black dark:hover:text-white transition-colors flex items-center py-6 hover:bg-black/5 dark:hover:bg-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
+          className={`font-futuristic text-[9px] tracking-[0.4em] text-neutral-600 hover:text-navalBlue dark:hover:text-white transition-colors flex items-center py-6 hover:bg-navalBlue/5 dark:hover:bg-white/5 ${isSidebarCollapsed ? "justify-center" : "px-8 gap-4"}`}
           title="Logout"
         >
           <svg
@@ -465,7 +465,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
       {/* Main Content */}
       <main
         data-lenis-prevent
-        className="flex-1 p-6 md:p-20 overflow-y-auto bg-white dark:bg-[#080808] transition-colors duration-300"
+        className="flex-1 p-6 md:p-20 overflow-y-auto bg-white dark:bg-navyDark transition-colors duration-300"
       >
         <div className="max-w-7xl mx-auto">
           {activeTab === "dashboard" && <AdminDashboard />}
@@ -482,7 +482,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
 
           {activeTab === "settings" && (
             <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-700">
-              <div className="border-b border-black/5 dark:border-white/5 pb-8">
+              <div className="border-b border-navalBlue/5 dark:border-white/5 pb-8">
                 <h2 className="text-4xl font-thin tracking-tighter uppercase">
                   CORE_SETTINGS
                 </h2>
@@ -503,7 +503,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ site_name: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light"
                     />
                   </div>
                   <div className="space-y-4">
@@ -516,7 +516,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ site_description: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light"
                     />
                   </div>
 
@@ -530,7 +530,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ hero_headline: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-xl font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-xl font-light"
                       placeholder="ETNA"
                     />
                   </div>
@@ -544,7 +544,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ hero_subheadline: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light"
                       placeholder="LIGHTING_TECH"
                     />
                   </div>
@@ -557,7 +557,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ hero_text: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light resize-none h-32"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light resize-none h-32"
                       placeholder="Texto principal del Hero..."
                     />
                   </div>
@@ -572,7 +572,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ opening_hours: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light"
                     />
                   </div>
 
@@ -586,7 +586,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       onChange={(e) =>
                         updateLocalConfig({ contact_phone: e.target.value })
                       }
-                      className="w-full bg-neutral-100 dark:bg-black border border-black/10 dark:border-white/10 p-4 outline-none focus:border-black dark:focus:border-white transition-colors text-sm font-light"
+                      className="w-full bg-neutral-100 dark:bg-navalBlue border border-navalBlue/10 dark:border-white/10 p-4 outline-none focus:border-navalBlue dark:focus:border-white transition-colors text-sm font-light"
                       placeholder="+54 9 11 1234 5678"
                     />
                   </div>
@@ -602,7 +602,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                       ></button>
                       <button
                         onClick={() => updateLocalConfig({ theme: "dark" })}
-                        className={`w-12 h-12 bg-neutral-900 border border-neutral-800 ${config.theme === "dark" ? "ring-2 ring-white ring-offset-2 ring-offset-black" : ""}`}
+                        className={`w-12 h-12 bg-navalBlue border border-neutral-800 ${config.theme === "dark" ? "ring-2 ring-white ring-offset-2 ring-offset-black" : ""}`}
                       ></button>
                     </div>
                   </div>
@@ -665,7 +665,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                   </div>
                 </div>
 
-                <div className="p-10 border border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-black/40 h-fit">
+                <div className="p-10 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/40 h-fit">
                   <h4 className="font-futuristic text-[10px] tracking-widest mb-6 opacity-40">
                     SYSTEM_STATUS
                   </h4>

@@ -27,7 +27,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-[20050] transition-opacity duration-500 ${
+        className={`fixed inset-0 bg-navalBlue/80 backdrop-blur-sm z-[20050] transition-opacity duration-500 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
@@ -39,9 +39,9 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-8 border-b border-black/5 dark:border-white/5 flex justify-between items-center">
+        <div className="p-8 border-b border-navalBlue/5 dark:border-white/5 flex justify-between items-center">
           <div>
-            <h3 className="font-futuristic text-2xl tracking-[0.2em] font-light uppercase dark:text-white text-black">
+            <h3 className="font-futuristic text-2xl tracking-[0.2em] font-light uppercase dark:text-white text-navalBlue">
               Tu Selección
             </h3>
             <p className="text-[10px] font-futuristic tracking-widest text-neutral-500 mt-1">
@@ -50,7 +50,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors dark:text-white text-black"
+            className="p-2 hover:bg-navalBlue/5 dark:hover:bg-white/5 rounded-full transition-colors dark:text-white text-navalBlue"
           >
             <svg
               className="w-6 h-6"
@@ -75,7 +75,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
           {items.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-50">
               <svg
-                className="w-12 h-12 dark:text-white text-black"
+                className="w-12 h-12 dark:text-white text-navalBlue"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
-              <p className="font-futuristic text-[10px] tracking-widest uppercase dark:text-white text-black">
+              <p className="font-futuristic text-[10px] tracking-widest uppercase dark:text-white text-navalBlue">
                 Tu carrito está vacío
               </p>
             </div>
@@ -97,7 +97,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                 key={item.id}
                 className="group flex gap-6 items-start animate-in slide-in-from-right-4 duration-500"
               >
-                <div className="w-20 h-24 bg-neutral-100 dark:bg-neutral-900 overflow-hidden shrink-0">
+                <div className="w-20 h-24 bg-neutral-100 dark:bg-navalBlue overflow-hidden shrink-0">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -106,7 +106,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                 </div>
                 <div className="flex-1 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h4 className="font-futuristic text-[11px] tracking-widest uppercase dark:text-white text-black">
+                    <h4 className="font-futuristic text-[11px] tracking-widest uppercase dark:text-white text-navalBlue">
                       {item.name}
                     </h4>
                     <button
@@ -126,12 +126,12 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                   </div>
                   <p className="text-xs text-neutral-500">{item.category}</p>
                   <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center border border-black/10 dark:border-white/10 dark:text-white text-black">
+                    <div className="flex items-center border border-navalBlue/10 dark:border-white/10 dark:text-white text-navalBlue">
                       <button
                         onClick={() =>
                           updateQuantity(item.id, item.quantity - 1)
                         }
-                        className="px-3 py-1 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        className="px-3 py-1 hover:bg-navalBlue/5 dark:hover:bg-white/5 transition-colors"
                       >
                         -
                       </button>
@@ -142,12 +142,12 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
                         }
-                        className="px-3 py-1 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        className="px-3 py-1 hover:bg-navalBlue/5 dark:hover:bg-white/5 transition-colors"
                       >
                         +
                       </button>
                     </div>
-                    <span className="font-light text-sm dark:text-white text-black">
+                    <span className="font-light text-sm dark:text-white text-navalBlue">
                       $
                       {(
                         parseFloat(item.category === "tech" ? "999" : "399") *
@@ -161,19 +161,19 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
           )}
         </div>
 
-        <div className="p-8 border-t border-black/5 dark:border-white/5 bg-neutral-50 dark:bg-[#0A0A0A] space-y-6">
+        <div className="p-8 border-t border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navyDark space-y-6">
           <div className="flex justify-between items-end">
             <span className="font-futuristic text-[10px] tracking-widest text-neutral-500 uppercase">
               Subtotal
             </span>
-            <span className="font-light text-2xl dark:text-white text-black">
+            <span className="font-light text-2xl dark:text-white text-navalBlue">
               ${total.toLocaleString()}
             </span>
           </div>
           <button
             onClick={handleCheckout}
             disabled={items.length === 0}
-            className="w-full bg-black dark:bg-white text-white dark:text-black py-4 font-futuristic text-[10px] tracking-[0.3em] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full bg-navalBlue dark:bg-white text-white dark:text-navalBlue py-4 font-futuristic text-[10px] tracking-[0.3em] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             CHECKOUT
           </button>
