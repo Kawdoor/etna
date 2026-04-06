@@ -24,6 +24,7 @@ import FloatingAssistant from "./components/FloatingAssistant";
 import Footer from "./components/Footer";
 import ProductView from "./components/ProductView";
 import VisionSection from "./components/VisionSection";
+import AISimulation from "./components/AISimulation";
 import { Product } from "./types";
 
 const AppContent: React.FC = () => {
@@ -179,6 +180,7 @@ const AppContent: React.FC = () => {
           <ContactInfo />
 
           <VisionSection />
+          <AISimulation />
         </main>
       ) : currentView === "checkout" ? (
         <Checkout />

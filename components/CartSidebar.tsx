@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+﻿import React, { useEffect, useRef } from "react";
 import { useCart } from "../context/CartContext";
 
 const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
-  const { isOpen, setIsOpen, items, updateQuantity, total } = useCart();
+  const { isOpen, setIsOpen, items, updateQuantity, total } = useCart();        
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,30 +27,30 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-navalBlue/80 backdrop-blur-sm z-[20050] transition-opacity duration-500 ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={"fixed inset-0 bg-navyDark/80 backdrop-blur-sm z-[20050] transition-opacity duration-500 " +
+          (isOpen ? "opacity-100" : "opacity-0 pointer-events-none")
+        }
         onClick={() => setIsOpen(false)}
       />
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-[#111] z-[20060] shadow-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={"fixed right-0 top-0 h-full w-full max-w-md bg-navalBlue z-[20060] shadow-2xl transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col " +
+          (isOpen ? "translate-x-0" : "translate-x-full")
+        }
       >
-        <div className="p-8 border-b border-navalBlue/5 dark:border-white/5 flex justify-between items-center">
+        <div className="p-8 border-b border-white/10 flex justify-between items-center bg-pullmanBrown text-white">
           <div>
-            <h3 className="font-futuristic text-2xl tracking-[0.2em] font-light uppercase dark:text-white text-navalBlue">
+            <h3 className="font-futuristic text-2xl tracking-[0.2em] font-light uppercase text-white">
               Tu Selección
             </h3>
-            <p className="text-[10px] font-futuristic tracking-widest text-neutral-500 mt-1">
-              {items.reduce((acc, item) => acc + item.quantity, 0)} ITEMS
+            <p className="text-[10px] font-futuristic tracking-widest text-white/70 mt-1">
+              {items.reduce((acc, item) => acc + item.quantity, 0)} ITEMS       
             </p>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-navalBlue/5 dark:hover:bg-white/5 rounded-full transition-colors dark:text-white text-navalBlue"
+            className="p-2 hover:bg-white/10 rounded-full transition-colors text-white"
           >
             <svg
               className="w-6 h-6"
@@ -70,12 +70,12 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
 
         <div
           ref={scrollContainerRef}
-          className="flex-1 overflow-y-auto p-8 space-y-8"
+          className="flex-1 overflow-y-auto p-8 space-y-8 bg-navalBlue"
         >
           {items.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-50">
+            <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-70">
               <svg
-                className="w-12 h-12 dark:text-white text-navalBlue"
+                className="w-12 h-12 text-pullmanBrown"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
-              <p className="font-futuristic text-[10px] tracking-widest uppercase dark:text-white text-navalBlue">
+              <p className="font-futuristic text-[10px] tracking-widest uppercase text-white">
                 Tu carrito está vacío
               </p>
             </div>
@@ -97,7 +97,7 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                 key={item.id}
                 className="group flex gap-6 items-start animate-in slide-in-from-right-4 duration-500"
               >
-                <div className="w-20 h-24 bg-neutral-100 dark:bg-navalBlue overflow-hidden shrink-0">
+                <div className="w-20 h-24 bg-navyDark overflow-hidden shrink-0 border border-pullmanBrown/30">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -106,12 +106,12 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                 </div>
                 <div className="flex-1 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h4 className="font-futuristic text-[11px] tracking-widest uppercase dark:text-white text-navalBlue">
+                    <h4 className="font-futuristic text-[11px] tracking-widest uppercase text-white">
                       {item.name}
                     </h4>
                     <button
                       onClick={() => updateQuantity(item.id, 0)}
-                      className="text-neutral-400 hover:text-red-500 transition-colors p-1"
+                      className="text-white/40 hover:text-red-400 transition-colors p-1"
                       title="Eliminar producto"
                     >
                       <svg
@@ -124,14 +124,14 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                       </svg>
                     </button>
                   </div>
-                  <p className="text-xs text-neutral-500">{item.category}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center border border-navalBlue/10 dark:border-white/10 dark:text-white text-navalBlue">
+                  <p className="text-xs text-white/60">{item.category}</p>   
+                  <div className="flex items-center justify-between mt-4">      
+                    <div className="flex items-center border border-pullmanBrown/30 text-white bg-navyDark/30">
                       <button
                         onClick={() =>
                           updateQuantity(item.id, item.quantity - 1)
                         }
-                        className="px-3 py-1 hover:bg-navalBlue/5 dark:hover:bg-white/5 transition-colors"
+                        className="px-3 py-1 hover:bg-pullmanBrown transition-colors"
                       >
                         -
                       </button>
@@ -142,15 +142,15 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
                         }
-                        className="px-3 py-1 hover:bg-navalBlue/5 dark:hover:bg-white/5 transition-colors"
+                        className="px-3 py-1 hover:bg-pullmanBrown transition-colors"
                       >
                         +
                       </button>
                     </div>
-                    <span className="font-light text-sm dark:text-white text-navalBlue">
+                    <span className="font-light text-sm text-white">
                       $
                       {(
-                        parseFloat(item.category === "tech" ? "999" : "399") *
+                        parseFloat(item.category === "tech" ? "999" : "399") *  
                         item.quantity
                       ).toLocaleString()}
                     </span>
@@ -161,19 +161,19 @@ const CartSidebar: React.FC<{ onCheckout?: () => void }> = ({ onCheckout }) => {
           )}
         </div>
 
-        <div className="p-8 border-t border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navyDark space-y-6">
+        <div className="p-8 border-t border-pullmanBrown/30 bg-navyDark space-y-6">
           <div className="flex justify-between items-end">
-            <span className="font-futuristic text-[10px] tracking-widest text-neutral-500 uppercase">
+            <span className="font-futuristic text-[10px] tracking-widest text-white/60 uppercase">
               Subtotal
             </span>
-            <span className="font-light text-2xl dark:text-white text-navalBlue">
-              ${total.toLocaleString()}
+            <span className="font-light text-2xl text-white">
+              
             </span>
           </div>
           <button
             onClick={handleCheckout}
             disabled={items.length === 0}
-            className="w-full bg-navalBlue dark:bg-white text-white dark:text-navalBlue py-4 font-futuristic text-[10px] tracking-[0.3em] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full bg-pullmanBrown text-white py-4 font-futuristic text-[10px] tracking-[0.3em] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             CHECKOUT
           </button>

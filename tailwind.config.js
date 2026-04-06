@@ -23,7 +23,7 @@ export default {
         },
       },
       colors: {
-        navalBlue: '#0248b0', // Primary color (much darker naval blue)
+        navalBlue: '#001838', // Primary color (much darker naval blue)
         navyDark: '#011c47', // Deep navy for dark backgrounds (replacing black)
         navyLight: '#1a6ce6', // Lighter naval blue for accents
         pullmanBrown: '#3a2410', // Secondary color

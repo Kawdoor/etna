@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="1"
-              d="M4 20L12 4L20 20M7 14h10"
+              d="M20 4H4v16h16M4 12h12"
             />
           </svg>
         </button>
