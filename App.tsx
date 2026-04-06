@@ -156,6 +156,8 @@ const AppContent: React.FC = () => {
         <main className="animate-in fade-in duration-1000">
           <Hero />
 
+          <AISimulation />
+
           <div className="py-24 bg-pullmanBrown flex items-center justify-center border-y border-white/5 overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee">
               <span className="font-futuristic text-[8px] tracking-[2em] text-neutral-700 px-10">
@@ -180,7 +182,6 @@ const AppContent: React.FC = () => {
           <ContactInfo />
 
           <VisionSection />
-          <AISimulation />
         </main>
       ) : currentView === "checkout" ? (
         <Checkout />

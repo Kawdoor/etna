@@ -306,12 +306,16 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
         </span>
       </nav>
 
-      <section className="relative w-full h-screen flex items-end p-8 md:p-20 overflow-hidden group/hero">
+      <section className="relative w-full h-[100dvh] flex items-end p-8 md:p-20 overflow-hidden group/hero">
+        <div className="absolute inset-0 w-full h-full">
           <ImageWithLoader
-          alt={product.name}
-          className="absolute inset-0 w-full h-full object-cover scale-105 animate-in fade-in duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navalBlue via-navalBlue/20 to-transparent pointer-events-none"></div>
+            src={product.image}
+            alt={product.name}
+            containerClassName="!absolute !inset-0 !w-full !h-full"
+            className="w-full h-full object-cover scale-105 animate-in fade-in duration-1000"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-navyDark via-navalBlue/40 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 w-full">
           <h1 className="font-futuristic text-5xl md:text-[10rem] leading-[0.85] tracking-tighter mb-8 font-extralight uppercase pointer-events-none">

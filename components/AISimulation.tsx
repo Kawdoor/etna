@@ -12,9 +12,9 @@ const AISimulation: React.FC = () => {
             <span className="font-futuristic uppercase tracking-[0.5em] text-[10px] text-pullmanBrown block">
               AI-Powered Design
             </span>
-            <h2 className="font-futuristic text-4xl md:text-6xl text-white font-light leading-snug tracking-widest uppercase">
-              Virtual <br /> 
-              <span className="text-pullmanBrown">Simulation.</span>
+            <h2 className="font-futuristic text-4xl md:text-6xl text-white font-light leading-normal tracking-widest uppercase">
+              Virtual <br />
+              <span className="inline-block mt-6 bg-pullmanBrown text-white px-8 py-4 border border-white/10 shadow-xl">Simulation.</span>
             </h2>
             <p className="text-xl text-white/80 leading-relaxed font-light">
                "Experimenta el diseño antes de que exista."
