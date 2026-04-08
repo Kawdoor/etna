@@ -132,6 +132,19 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
             </div>
           )}
         </div>
+
+        {/* Color Selection */}
+        <div className="relative flex items-center justify-center w-8 h-8 hover:bg-white/20 rounded cursor-pointer transition-colors" title="Color de Letra">
+          <div className="w-5 h-5 rounded-full overflow-hidden border border-white/40">
+            <input
+              type="color"
+              onInput={(e) => {
+                execCommand("foreColor", e.currentTarget.value);
+              }}
+              className="absolute -top-2 -left-2 w-12 h-12 cursor-pointer"
+            />
+          </div>
+        </div>
       </div>
 
       <Tag

@@ -107,18 +107,46 @@ const About: React.FC = () => {
     }));
   };
 
-  const currentWrapperClass = isEditing
-    ? `${editValues.colors?.about?.bg || "bg-pullmanBrown"} pt-32 pb-24 ${editValues.colors?.about?.text || "text-white"} relative group/about flex flex-col transition-colors duration-500`
-    : `${config.theme_colors?.about?.bg || "bg-pullmanBrown"} pt-32 pb-24 ${config.theme_colors?.about?.text || "text-white"} relative group/about transition-colors duration-500`;
+
+  // Permitir cambiar color siempre y reflejar cambios inmediatos
+  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
+  const aboutColors = editColors || (isEditing ? (editValues.colors?.about || { bg: "bg-pullmanBrown", text: "text-white" }) : (config.theme_colors?.about || { bg: "bg-pullmanBrown", text: "text-white" }));
+  const currentWrapperClass = `${aboutColors.bg} pt-32 pb-24 ${aboutColors.text?.startsWith('#') ? '' : aboutColors.text} relative group/about flex flex-col transition-colors duration-500`;
+
+  const handleColorChange = (bg: string, text: string) => {
+    setEditColors({ bg, text });
+    if (isEditing) {
+      setEditValues((prev) => ({
+        ...prev,
+        colors: {
+          ...prev.colors,
+          about: { bg, text },
+        },
+      }));
+    } else {
+      updateLocalConfig({
+        theme_colors: {
+          ...config.theme_colors,
+          about: { bg, text },
+        },
+      });
+    }
+  };
 
   return (
     <div
       id="about"
       className={currentWrapperClass}
+      style={{ color: aboutColors.text?.startsWith('#') ? aboutColors.text : undefined }}
     >
       {/* Admin Controls */}
       {isAdmin && (
         <div className="absolute top-24 right-6 z-50 flex gap-4 items-center">
+          <ThemeColorPicker
+            currentColor={aboutColors.bg}
+            currentTextColor={aboutColors.text}
+            onChange={handleColorChange}
+          />
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
@@ -141,19 +169,6 @@ const About: React.FC = () => {
             </button>
           ) : (
             <>
-              <ThemeColorPicker
-                sectionId="about"
-                colors={editValues.colors}
-                onChange={(sectionId, bg, text) => 
-                  setEditValues({
-                    ...editValues,
-                    colors: {
-                      ...editValues.colors,
-                      [sectionId]: { bg, text }
-                    }
-                  })
-                }
-              />
               <button
                 onClick={handleSave}
                 className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all shadow-xl"
@@ -205,12 +220,14 @@ const About: React.FC = () => {
           </h2>
           <h1 className="text-5xl md:text-[8rem] font-thin tracking-tighter leading-none mb-12">
             {isEditing ? (
-              <input
-                value={editValues.headline}
-                onChange={(e) =>
-                  setEditValues({ ...editValues, headline: e.target.value })
+              <RichTextEditor
+                tagName="span"
+                initialValue={editValues.headline}
+                onChange={(val) =>
+                  setEditValues({ ...editValues, headline: val })
                 }
-                className="bg-transparent border-b border-white/20 outline-none text-center w-full focus:border-white transition-colors"
+                className="bg-transparent border border-white/20 outline-none text-center w-full focus:border-white transition-colors h-auto min-h-[6rem] p-4"
+                placeholder="LEGADO VIRTUAL..."
               />
             ) : (
               <span

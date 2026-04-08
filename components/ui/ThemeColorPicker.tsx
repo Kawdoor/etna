@@ -16,9 +16,33 @@ interface ThemeColorPickerProps {
   onChange: (bg: string, text: string) => void;
 }
 
+// Helper to convert Tailwind text-* or hex to color value for input
+function getTextColorValue(textClass: string | undefined | null): string {
+  if (!textClass) return '#ffffff';
+  if (typeof textClass !== 'string') return '#ffffff';
+  if (textClass.startsWith('text-')) {
+    switch (textClass) {
+      case 'text-white': return '#ffffff';
+      case 'text-navalBlue': return '#0a2239';
+      case 'text-navyDark': return '#1a2636';
+      case 'text-pullmanBrown': return '#6b4f3b';
+      case 'text-black': return '#000000';
+      case 'text-neutral-400': return '#a3a3a3';
+      case 'text-neutral-500': return '#737373';
+      default:
+        // Try to extract hex from class
+        const hex = textClass.match(/#([0-9a-fA-F]{6})/);
+        if (hex) return `#${hex[1]}`;
+        return '#ffffff';
+    }
+  }
+  if (textClass.startsWith('#')) return textClass;
+  return '#ffffff';
+}
+
 export const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ currentColor, currentTextColor, onChange }) => {
   return (
-    <div className="flex gap-2 items-center bg-black/40 backdrop-blur-md p-2 rounded-full border border-white/10">
+    <div className="flex gap-4 items-center bg-black/40 backdrop-blur-md p-2 rounded-full border border-white/10">
       <span className="text-[10px] font-futuristic tracking-widest uppercase ml-2 text-white/50">BG Color:</span>
       <div className="flex gap-1 ml-2 mr-2">
         {COLORS.map(c => (
@@ -26,6 +50,7 @@ export const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ currentColor
             key={c.label}
             onClick={() => onChange(c.bg, c.text)}
             className={`w-6 h-6 rounded-full border-2 transition-all hover:scale-110 ${c.bg} ${currentColor === c.bg ? 'border-white !scale-125' : 'border-transparent filter brightness-75 hover:brightness-100'}`}
+            title={c.label}
           />
         ))}
       </div>

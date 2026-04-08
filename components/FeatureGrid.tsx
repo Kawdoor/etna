@@ -578,15 +578,17 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                   className="font-futuristic text-5xl md:text-8xl tracking-tighter uppercase font-thin bg-transparent border border-white/20 text-center w-full max-w-5xl h-auto min-h-[10rem] p-4 focus:border-white focus:outline-none"
                   placeholder="TITULO CATALOGO..."
                 />
-                <input
-                  value={editValues.collectionSubheadline}
-                  onChange={(e) =>
+                <RichTextEditor
+                  tagName="p"
+                  initialValue={editValues.collectionSubheadline}
+                  onChange={(val) =>
                     setEditValues({
                       ...editValues,
-                      collectionSubheadline: e.target.value,
+                      collectionSubheadline: val,
                     })
                   }
-                  className="font-futuristic text-[10px] tracking-[0.6em] text-neutral-500 bg-transparent border-b border-white/20 w-full max-w-lg text-center focus:border-white focus:outline-none pb-2 mt-4"
+                  className="font-futuristic text-[10px] tracking-[0.6em] text-neutral-500 bg-transparent border border-white/20 w-full max-w-lg text-center h-auto min-h-[4rem] p-2 focus:border-white focus:outline-none mb-4"
+                  placeholder="SUBTITULO CATALOGO..."
                 />
               </div>
             ) : (
@@ -614,22 +616,26 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
           <div className="max-w-2xl">
             <h3 className="font-futuristic text-[10px] tracking-[0.5em] text-neutral-500 mb-4 uppercase">
               {isEditing ? (
-                <input
-                  value={editValues.subheadline}
-                  onChange={(e) =>
+                <RichTextEditor
+                  tagName="h3"
+                  initialValue={editValues.subheadline}
+                  onChange={(val) =>
                     setEditValues({
                       ...editValues,
-                      subheadline: e.target.value,
+                      subheadline: val,
                     })
                   }
-                  className="bg-transparent border-b border-white/20 outline-none w-full focus:border-white transition-colors"
+                  className="bg-transparent border border-white/20 outline-none w-full h-auto min-h-[4rem] p-2 focus:border-white transition-colors"
+                  placeholder="LA COLECCIÓN..."
                 />
               ) : (
-                <span>
-                  {showAll
-                    ? config.catalog_description_full || "FILTROS_TÉCNICOS"
-                    : config.catalog_description || "LA COLECCIÓN"}
-                </span>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: showAll
+                      ? config.catalog_description_full || "FILTROS_TÉCNICOS"
+                      : config.catalog_description || "LA COLECCIÓN"
+                  }}
+                />
               )}
             </h3>
             <h2 className="text-4xl md:text-8xl font-extralight tracking-tighter leading-none mb-12">

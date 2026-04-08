@@ -1,5 +1,8 @@
+-- Drop table if you need to reset completely (Optional)
+-- DROP TABLE IF EXISTS public.config;
+
 -- Create config table
-create table public.config (
+CREATE TABLE IF NOT EXISTS public.config (
   id serial primary key,
   site_name text default 'ETNA',
   site_description text default 'Iluminación de Vanguardia',
@@ -20,7 +23,7 @@ create table public.config (
   about_headline text,
   about_description text,
   about_image_url text,
-  about_history jsonb, -- Array of history items
+  about_history jsonb,
 
   -- Catalog Section
   catalog_headline text,
@@ -54,21 +57,36 @@ create table public.config (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- Enable RLS
-alter table public.config enable row level security;
+-- Habilitar RLS (Seguridad a Nivel de Filas)
+ALTER TABLE public.config ENABLE ROW LEVEL SECURITY;
 
--- Allow public read
-create policy "Public config is viewable by everyone"
-  on config for select
-  using ( true );
+-- Evitar errores si las políticas ya existen
+DO $$
+BEGIN
+    DROP POLICY IF EXISTS "Public config is viewable by everyone" ON public.config;
+    DROP POLICY IF EXISTS "Allow updates to config" ON public.config;
+    DROP POLICY IF EXISTS "Allow inserts to config" ON public.config;
+EXCEPTION
+    WHEN OTHERS THEN NULL;
+END $$;
 
--- Allow authenticated (or anon for now per project style) to update
--- Ideally this should be restricted to admin only
-create policy "Allow updates to config"
-  on config for update
-  using ( true )
-  with check ( true );
+-- Política de Lectura (Pública)
+CREATE POLICY "Public config is viewable by everyone"
+  ON public.config FOR SELECT
+  USING ( true );
 
-create policy "Allow inserts to config"
-  on config for insert
-  with check ( true );
+-- Política de Actualización (Permitir a todos / Anon para este proyecto)
+CREATE POLICY "Allow updates to config"
+  ON public.config FOR UPDATE
+  USING ( true )
+  WITH CHECK ( true );
+
+-- Política de Inserción
+CREATE POLICY "Allow inserts to config"
+  ON public.config FOR INSERT
+  WITH CHECK ( true );
+
+-- ¡IMPORTANTE! Insertar la fila de configuración inicial si la tabla está vacía
+INSERT INTO public.config (id, site_name)
+SELECT 1, 'ETNA'
+WHERE NOT EXISTS (SELECT 1 FROM public.config WHERE id = 1);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useConfig } from "../context/ConfigContext";
 import { supabase } from "../services/supabase";
 import RichTextEditor from "./ui/RichTextEditor";
+import { ThemeColorPicker } from "./ui/ThemeColorPicker";
 
 const ContactInfo: React.FC = () => {
   const { config, updateLocalConfig } = useConfig();
@@ -56,14 +57,34 @@ const ContactInfo: React.FC = () => {
     setIsEditing(false);
   };
 
+  // Permitir cambiar color siempre y reflejar cambios inmediatos
+  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
+  const contactColors = editColors || config.theme_colors?.contact || { bg: "bg-navyDark", text: "text-white" };
+
+  const handleColorChange = (bg: string, text: string) => {
+    setEditColors({ bg, text });
+    updateLocalConfig({
+      theme_colors: {
+        ...config.theme_colors,
+        contact: { bg, text },
+      },
+    });
+  };
+
   return (
     <section
       id="contact-info"
-      className="py-32 px-6 bg-navyDark relative group/contact"
+      className={`py-32 px-6 ${contactColors.bg} ${contactColors.text?.startsWith('#') ? '' : contactColors.text} relative group/contact transition-colors duration-500`}
+      style={{ color: contactColors.text?.startsWith('#') ? contactColors.text : undefined }}
     >
       {/* Admin Controls */}
       {isAdmin && (
-        <div className="absolute top-24 right-6 z-50 flex gap-2">
+        <div className="absolute top-24 right-6 z-50 flex gap-2 items-center">
+          <ThemeColorPicker
+            currentColor={contactColors.bg}
+            currentTextColor={contactColors.text}
+            onChange={handleColorChange}
+          />
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
@@ -135,15 +156,17 @@ const ContactInfo: React.FC = () => {
             <div>
               <h3 className="font-futuristic text-[10px] tracking-[0.5em] text-neutral-500 mb-4 uppercase">
                 {isEditing ? (
-                  <input
-                    value={editValues.headline}
-                    onChange={(e) =>
-                      setEditValues({ ...editValues, headline: e.target.value })
+                  <RichTextEditor
+                    tagName="span"
+                    initialValue={editValues.headline}
+                    onChange={(val: string) =>
+                      setEditValues({ ...editValues, headline: val })
                     }
-                    className="bg-transparent border-b border-white/20 outline-none w-full focus:border-white transition-colors"
+                    className="bg-transparent border border-white/20 outline-none w-full h-[3rem] p-2 focus:border-white transition-colors block"
+                    placeholder="UBICACIÓN_FLAGSHIP..."
                   />
                 ) : (
-                  <span>{config.contact_headline || "UBICACIÓN_FLAGSHIP"}</span>
+                  <span dangerouslySetInnerHTML={{ __html: config.contact_headline || "UBICACIÓN_FLAGSHIP" }} />
                 )}
               </h3>
               <h2 className="text-4xl md:text-6xl font-extralight tracking-tighter">
@@ -187,21 +210,23 @@ const ContactInfo: React.FC = () => {
                     UBICACIÓN
                   </h4>
                   {isEditing ? (
-                    <input
-                      value={editValues.address}
-                      onChange={(e) =>
+                    <RichTextEditor
+                      tagName="div"
+                      initialValue={editValues.address}
+                      onChange={(val) =>
                         setEditValues({
                           ...editValues,
-                          address: e.target.value,
+                          address: val,
                         })
                       }
-                      className="text-xl font-light bg-transparent border-b border-white/20 outline-none w-full focus:border-white"
+                      className="text-xl font-light bg-transparent border border-white/20 outline-none w-full p-2 focus:border-white h-auto min-h-[4rem]"
+                      placeholder="Dirección..."
                     />
                   ) : (
-                    <p className="text-xl font-light">
-                      {config.contact_address ||
-                        "Calle 12 y 50 N° 820, La Plata"}
-                    </p>
+                    <p 
+                      className="text-xl font-light"
+                      dangerouslySetInnerHTML={{ __html: config.contact_address || "Calle 12 y 50 N° 820, La Plata" }}
+                    />
                   )}
                 </div>
               </div>

@@ -254,7 +254,7 @@ const Hero: React.FC = () => {
            <FloatingGeometryHero />
         )}
         
-        <div className="absolute inset-0 bg-gradient-to-b from-navalBlue/80 via-transparent to-navalBlue pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-navalBlue/30 via-transparent to-navalBlue/80 pointer-events-none"></div>
       </div>
 
       <div
@@ -263,30 +263,34 @@ const Hero: React.FC = () => {
       >
         <h1 className="font-futuristic text-6xl md:text-[10rem] font-thin tracking-tighter leading-[0.85] mb-12 flex flex-col items-center">
           {isEditing ? (
-            <input
-              value={editValues.headline}
-              onChange={(e) =>
-                setEditValues({ ...editValues, headline: e.target.value })
+            <RichTextEditor
+              tagName="span"
+              initialValue={editValues.headline}
+              onChange={(val) =>
+                setEditValues({ ...editValues, headline: val })
               }
-              className="bg-transparent border-b border-white/20 outline-none text-center w-full max-w-3xl focus:border-white transition-colors"
-              autoFocus
+              className="bg-transparent border border-white/20 outline-none text-center w-full max-w-3xl focus:border-white transition-colors h-auto min-h-[6rem] p-2"
+              placeholder="ETNA..."
             />
           ) : (
-            <span>{config.hero_headline || "ETNA"}</span>
+            <span dangerouslySetInnerHTML={{ __html: config.hero_headline || "ETNA" }} />
           )}
 
           {isEditing ? (
-            <input
-              value={editValues.subheadline}
-              onChange={(e) =>
-                setEditValues({ ...editValues, subheadline: e.target.value })
+            <RichTextEditor
+              tagName="span"
+              initialValue={editValues.subheadline}
+              onChange={(val) =>
+                setEditValues({ ...editValues, subheadline: val })
               }
-              className="text-4xl md:text-6xl tracking-[0.2em] font-light bg-transparent border-b border-white/20 outline-none text-center w-full max-w-3xl focus:border-white transition-colors mt-4"
+              className="text-4xl md:text-6xl tracking-[0.2em] font-light bg-transparent border border-white/20 outline-none text-center w-full max-w-3xl focus:border-white transition-colors mt-4 p-2 min-h-[4rem]"
+              placeholder="LIGHTING_TECH..."
             />
           ) : (
-            <span className="text-4xl md:text-6xl tracking-[0.2em] font-light mt-2 md:mt-0 block">
-              {config.hero_subheadline || "LIGHTING_TECH"}
-            </span>
+            <span 
+              className="text-4xl md:text-6xl tracking-[0.2em] font-light mt-2 md:mt-0 block"
+              dangerouslySetInnerHTML={{ __html: config.hero_subheadline || "LIGHTING_TECH" }}
+            />
           )}
         </h1>
 

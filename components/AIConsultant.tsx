@@ -1,8 +1,13 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { GeminiService } from "../services/geminiService";
 import { ChatMessage } from "../types";
+import { useConfig } from "../context/ConfigContext";
+import { ThemeColorPicker } from "./ui/ThemeColorPicker";
+
 
 const AIConsultant: React.FC = () => {
+  const { config, updateLocalConfig } = useConfig();
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "model",
@@ -11,7 +16,18 @@ const AIConsultant: React.FC = () => {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Detect admin (copiado de ContactInfo)
+  useEffect(() => {
+    import("../services/supabase").then(({ supabase }) => {
+      supabase.auth.getSession().then(({ data: { session } }) => setIsAdmin(!!session));
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => setIsAdmin(!!session));
+      return () => subscription.unsubscribe();
+    });
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -19,21 +35,24 @@ const AIConsultant: React.FC = () => {
     }
   }, [messages, isTyping]);
 
+  // Color logic
+  const aiColors = editColors || config.theme_colors?.ai || { bg: "bg-pullmanBrown", text: "text-white" };
+
+  const handleColorChange = (bg: string, text: string) => {
+    setEditColors({ bg, text });
+    if (isAdmin) {
+      updateLocalConfig({ theme_colors: { ...config.theme_colors, ai: { bg, text } } });
+    }
+  };
+
   const handleSend = async () => {
     if (!input.trim() || isTyping) return;
-
     const userMsg = input.trim();
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setIsTyping(true);
-
-    const history = messages.map((m) => ({
-      role: m.role,
-      parts: [{ text: m.text }],
-    }));
-
+    const history = messages.map((m) => ({ role: m.role, parts: [{ text: m.text }] }));
     const response = await GeminiService.getDesignAdvice(userMsg, history);
-
     setIsTyping(false);
     setMessages((prev) => [...prev, { role: "model", text: response || "" }]);
   };
@@ -41,9 +60,20 @@ const AIConsultant: React.FC = () => {
   return (
     <section
       id="ai"
-      className="py-32 px-6 relative bg-pullmanBrown text-white overflow-hidden"
+      className={`py-32 px-6 relative ${aiColors.bg} ${aiColors.text?.startsWith('#') ? '' : aiColors.text} overflow-hidden transition-colors duration-500`}
+      style={{ color: aiColors.text?.startsWith('#') ? aiColors.text : undefined }}
     >
       <div className="absolute top-0 right-0 w-1/2 h-full bg-neutral-100/50 -skew-x-12 z-0"></div>
+
+      {isAdmin && (
+        <div className="absolute top-8 right-8 z-50">
+          <ThemeColorPicker
+            currentColor={aiColors.bg}
+            currentTextColor={aiColors.text}
+            onChange={handleColorChange}
+          />
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>

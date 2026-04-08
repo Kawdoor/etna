@@ -90,6 +90,11 @@ export interface AppConfig {
   contact_map_url?: string;
   vision_text?: string;
   vision_image_url?: string;
+  ai_simulation_subtitle?: string;
+  ai_simulation_title?: string;
+  ai_simulation_quote?: string;
+  ai_simulation_body?: string;
+  ai_simulation_badge?: string;
 }
 
 export enum NavigationSection {
