@@ -19,7 +19,10 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
   const [clarification, setClarification] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [resultImage, setResultImage] = useState<string | null>(null);
-  const [lightbox, setLightbox] = useState<{ src: string; index: number } | null>(null);
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    index: number;
+  } | null>(null);
   const [selectedTheme, setSelectedTheme] = useState<string>("day");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -32,7 +35,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
   });
 
   const [customMessage, setCustomMessage] = useState(
-    `Hola, estoy interesado en ${product.name}.`
+    `Hola, estoy interesado en ${product.name}.`,
   );
 
   const handleConsultationSubmit = async () => {
@@ -105,7 +108,8 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
         const nextIndex = (lightbox.index + 1) % allImages.length;
         setLightbox({ src: allImages[nextIndex], index: nextIndex });
       } else if (e.key === "ArrowLeft" && lightbox.index !== -1) {
-        const prevIndex = (lightbox.index - 1 + allImages.length) % allImages.length;
+        const prevIndex =
+          (lightbox.index - 1 + allImages.length) % allImages.length;
         setLightbox({ src: allImages[prevIndex], index: prevIndex });
       }
     };
@@ -220,7 +224,8 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 className="absolute left-4 md:left-10 text-white p-4 hover:bg-white/10 rounded-full transition-colors z-[210]"
                 onClick={(e) => {
                   e.stopPropagation();
-                  const prevIndex = (lightbox.index - 1 + allImages.length) % allImages.length;
+                  const prevIndex =
+                    (lightbox.index - 1 + allImages.length) % allImages.length;
                   setLightbox({ src: allImages[prevIndex], index: prevIndex });
                 }}
               >
@@ -475,7 +480,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
           </div>
 
           <div className="grid grid-cols-1 gap-8">
-            <h3 className="font-futuristic text-[10px] tracking-[0.5em] text-neutral-600 mb-0 uppercase">Galería</h3>
+            <h3 className="font-futuristic text-[10px] tracking-[0.5em] text-neutral-600 mb-0 uppercase">
+              Galería
+            </h3>
             {allImages.map((img, idx) => (
               <div
                 key={idx}
@@ -645,7 +652,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       src={resultImage}
                       alt="Room Visualization Result"
                       className="w-full h-full object-cover cursor-zoom-in"
-                      onClick={() => setLightbox({ src: resultImage, index: -1 })}
+                      onClick={() =>
+                        setLightbox({ src: resultImage, index: -1 })
+                      }
                     />
                     <button
                       onClick={handleDownload}
