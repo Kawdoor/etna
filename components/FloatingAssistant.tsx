@@ -109,13 +109,13 @@ const FloatingAssistant: React.FC = () => {
     >
       {/* Ventana de Chat con Transiciones Smooth */}
       <div
-        className={`mb-4 md:mb-6 w-[calc(100vw-2rem)] md:w-[400px] h-[60vh] md:h-[450px] bg-white/95 backdrop-blur-2xl text-navalBlue shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col border-none origin-bottom-right transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-t-2xl rounded-b-none ${
+        className={`mb-4 md:mb-6 w-[calc(100vw-2rem)] md:w-[400px] h-[60vh] md:h-[450px] bg-navalBlue/95 backdrop-blur-2xl text-white shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col border border-white/10 origin-bottom-right transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-t-2xl rounded-b-none ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-90 translate-y-10 pointer-events-none"
         }`}
       >
-        <div className="p-6 border-b border-transparent flex justify-between items-center bg-navalBlue text-white">
+        <div className="p-6 border-b border-white/10 flex justify-between items-center bg-transparent text-white">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             <span className="font-futuristic text-[9px] tracking-[0.4em]">
@@ -155,8 +155,8 @@ const FloatingAssistant: React.FC = () => {
               <div
                 className={`max-w-[85%] p-4 text-[13px] font-light leading-relaxed shadow-sm ${
                   m.role === "user"
-                    ? "bg-navalBlue text-white rounded-l-2xl rounded-tr-2xl"
-                    : "bg-neutral-100 text-navalBlue rounded-r-2xl rounded-tl-2xl"
+                    ? "bg-white/10 text-white rounded-l-2xl rounded-tr-2xl"
+                    : "bg-white/5 text-white border border-white/10 rounded-r-2xl rounded-tl-2xl"
                 }`}
               >
                 {m.role === "model" ? (
@@ -204,28 +204,28 @@ const FloatingAssistant: React.FC = () => {
           ))}
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-neutral-50 p-4 rounded-2xl rounded-tl-none border border-navalBlue/5">
+              <div className="bg-white/5 p-4 rounded-2xl rounded-tl-none border border-white/10">
                 <div className="flex gap-1">
-                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce"></div>
-                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce [animation-delay:0.2s]"></div>
-                  <div className="w-1.5 h-1.5 bg-navalBlue/20 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce [animation-delay:0.4s]"></div>
                 </div>
               </div>
             </div>
           )}
         </div>
 
-        <div className="p-6 bg-neutral-50/50 border-t border-transparent">
+        <div className="p-6 bg-white/5 border-t border-white/10">
           <div className="relative flex items-center">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Describa su visión arquitectónica..."
-              className="w-full text-xs font-light outline-none bg-white border border-navalBlue/10 rounded-full py-4 pl-6 pr-14 focus:border-navalBlue/30 shadow-inner transition-all"
+              className="w-full text-xs font-light outline-none bg-white/5 text-white border border-white/20 rounded-full py-4 pl-6 pr-14 focus:border-white/40 shadow-inner transition-all placeholder:text-white/40"
             />
             <button
-              className="absolute right-2 w-10 h-10 bg-navalBlue text-white rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg"
+              className="absolute right-2 w-10 h-10 bg-white text-navalBlue rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg"
               onClick={() => handleSend()}
             >
               <svg

@@ -369,21 +369,25 @@ export const AdminInventory: React.FC<AdminInventoryProps> = ({ onUpdate }) => {
             }}
             className={`cursor-pointer mb-6 p-4 rounded-lg border transition-all flex items-center justify-between group ${
               showLowStockOnly
-                ? "bg-amber-100 border-amber-300 text-amber-900 dark:bg-amber-900/40 dark:border-amber-700 dark:text-amber-100"
-                : "bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-900/20 dark:border-amber-800/50 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/30"
+                ? "bg-red-500/10 border-red-500/30 text-red-600 dark:bg-red-500/20 dark:border-red-500/50 dark:text-red-400 shadow-sm"
+                : "bg-red-500/5 border-red-500/20 text-red-600/80 dark:bg-red-500/5 dark:border-red-500/20 dark:text-red-500/80 hover:bg-red-500/10 dark:hover:bg-red-500/15"
             }`}
           >
             <div className="flex items-center gap-3">
-              <span className="text-xs font-futuristic tracking-widest uppercase">
-                Hay{" "}
-                <span className="text-red-500 font-bold">
-                  {lowStockProducts.length}
-                </span>{" "}
-                productos con poco stock (&lt; 5)
-              </span>
+              <div className={`p-2 rounded-full ${showLowStockOnly ? "bg-red-500/20" : "bg-red-500/10"} flex items-center justify-center`}>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium tracking-wide">Alerta de Stock</h3>
+                <span className="text-xs font-light opacity-90 uppercase tracking-widest mt-0.5 block">
+                  Hay <strong className="font-bold">{lowStockProducts.length}</strong> productos con existencias críticas (&lt; 5)
+                </span>
+              </div>
             </div>
-            <span className="text-[10px] uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
-              {showLowStockOnly ? "Mostrar todos" : "Filtrar lista"}
+            <span className="text-[10px] uppercase font-futuristic tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
+              {showLowStockOnly ? "Cerrar Filtro" : "Ver Alertas"}
             </span>
           </div>
         )}
