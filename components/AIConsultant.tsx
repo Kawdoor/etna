@@ -1,10 +1,8 @@
-
 import React, { useEffect, useRef, useState } from "react";
+import { useConfig } from "../context/ConfigContext";
 import { GeminiService } from "../services/geminiService";
 import { ChatMessage } from "../types";
-import { useConfig } from "../context/ConfigContext";
 import { ThemeColorPicker } from "./ui/ThemeColorPicker";
-
 
 const AIConsultant: React.FC = () => {
   const { config, updateLocalConfig } = useConfig();
@@ -17,14 +15,23 @@ const AIConsultant: React.FC = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
+  const [editColors, setEditColors] = useState<{
+    bg: string;
+    text: string;
+  } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Detect admin (copiado de ContactInfo)
   useEffect(() => {
     import("../services/supabase").then(({ supabase }) => {
-      supabase.auth.getSession().then(({ data: { session } }) => setIsAdmin(!!session));
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => setIsAdmin(!!session));
+      supabase.auth
+        .getSession()
+        .then(({ data: { session } }) => setIsAdmin(!!session));
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_event, session) =>
+        setIsAdmin(!!session),
+      );
       return () => subscription.unsubscribe();
     });
   }, []);
@@ -36,12 +43,15 @@ const AIConsultant: React.FC = () => {
   }, [messages, isTyping]);
 
   // Color logic
-  const aiColors = editColors || config.theme_colors?.ai || { bg: "bg-pullmanBrown", text: "text-white" };
+  const aiColors = editColors ||
+    config.theme_colors?.ai || { bg: "bg-pullmanBrown", text: "text-white" };
 
   const handleColorChange = (bg: string, text: string) => {
     setEditColors({ bg, text });
     if (isAdmin) {
-      updateLocalConfig({ theme_colors: { ...config.theme_colors, ai: { bg, text } } });
+      updateLocalConfig({
+        theme_colors: { ...config.theme_colors, ai: { bg, text } },
+      });
     }
   };
 
@@ -51,7 +61,10 @@ const AIConsultant: React.FC = () => {
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setIsTyping(true);
-    const history = messages.map((m) => ({ role: m.role, parts: [{ text: m.text }] }));
+    const history = messages.map((m) => ({
+      role: m.role,
+      parts: [{ text: m.text }],
+    }));
     const response = await GeminiService.getDesignAdvice(userMsg, history);
     setIsTyping(false);
     setMessages((prev) => [...prev, { role: "model", text: response || "" }]);
@@ -60,8 +73,10 @@ const AIConsultant: React.FC = () => {
   return (
     <section
       id="ai"
-      className={`py-32 px-6 relative ${aiColors.bg} ${aiColors.text?.startsWith('#') ? '' : aiColors.text} overflow-hidden transition-colors duration-500`}
-      style={{ color: aiColors.text?.startsWith('#') ? aiColors.text : undefined }}
+      className={`py-32 px-6 relative ${aiColors.bg} ${aiColors.text?.startsWith("#") ? "" : aiColors.text} overflow-hidden transition-colors duration-500`}
+      style={{
+        color: aiColors.text?.startsWith("#") ? aiColors.text : undefined,
+      }}
     >
       <div className="absolute top-0 right-0 w-1/2 h-full bg-neutral-100/50 -skew-x-12 z-0"></div>
 

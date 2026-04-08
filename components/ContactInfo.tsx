@@ -58,8 +58,12 @@ const ContactInfo: React.FC = () => {
   };
 
   // Permitir cambiar color siempre y reflejar cambios inmediatos
-  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
-  const contactColors = editColors || config.theme_colors?.contact || { bg: "bg-navyDark", text: "text-white" };
+  const [editColors, setEditColors] = useState<{
+    bg: string;
+    text: string;
+  } | null>(null);
+  const contactColors = editColors ||
+    config.theme_colors?.contact || { bg: "bg-navyDark", text: "text-white" };
 
   const handleColorChange = (bg: string, text: string) => {
     setEditColors({ bg, text });
@@ -74,17 +78,16 @@ const ContactInfo: React.FC = () => {
   return (
     <section
       id="contact-info"
-      className={`py-32 px-6 ${contactColors.bg} ${contactColors.text?.startsWith('#') ? '' : contactColors.text} relative group/contact transition-colors duration-500`}
-      style={{ color: contactColors.text?.startsWith('#') ? contactColors.text : undefined }}
+      className={`py-32 px-6 ${contactColors.bg} ${contactColors.text?.startsWith("#") ? "" : contactColors.text} relative group/contact transition-colors duration-500`}
+      style={{
+        color: contactColors.text?.startsWith("#")
+          ? contactColors.text
+          : undefined,
+      }}
     >
       {/* Admin Controls */}
       {isAdmin && (
         <div className="absolute top-24 right-6 z-50 flex gap-2 items-center">
-          <ThemeColorPicker
-            currentColor={contactColors.bg}
-            currentTextColor={contactColors.text}
-            onChange={handleColorChange}
-          />
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
@@ -107,6 +110,11 @@ const ContactInfo: React.FC = () => {
             </button>
           ) : (
             <>
+              <ThemeColorPicker
+                currentColor={contactColors.bg}
+                currentTextColor={contactColors.text}
+                onChange={handleColorChange}
+              />
               <button
                 onClick={handleSave}
                 className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all"
@@ -166,7 +174,11 @@ const ContactInfo: React.FC = () => {
                     placeholder="UBICACIÓN_FLAGSHIP..."
                   />
                 ) : (
-                  <span dangerouslySetInnerHTML={{ __html: config.contact_headline || "UBICACIÓN_FLAGSHIP" }} />
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: config.contact_headline || "UBICACIÓN_FLAGSHIP",
+                    }}
+                  />
                 )}
               </h3>
               <h2 className="text-4xl md:text-6xl font-extralight tracking-tighter">
@@ -223,9 +235,13 @@ const ContactInfo: React.FC = () => {
                       placeholder="Dirección..."
                     />
                   ) : (
-                    <p 
+                    <p
                       className="text-xl font-light"
-                      dangerouslySetInnerHTML={{ __html: config.contact_address || "Calle 12 y 50 N° 820, La Plata" }}
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          config.contact_address ||
+                          "Calle 12 y 50 N° 820, La Plata",
+                      }}
                     />
                   )}
                 </div>

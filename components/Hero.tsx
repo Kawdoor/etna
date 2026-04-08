@@ -113,10 +113,7 @@ const Hero: React.FC = () => {
     : `${config.theme_colors?.hero?.bg || "bg-navyDark"} ${config.theme_colors?.hero?.text || "text-white"} relative h-screen w-full flex items-center justify-center overflow-hidden group/hero transition-colors duration-500`;
 
   return (
-    <section
-      id="hero"
-      className={currentWrapperClass}
-    >
+    <section id="hero" className={currentWrapperClass}>
       {/* Admin Controls */}
       {isAdmin && (
         <div className="absolute top-24 right-6 z-50 flex gap-2">
@@ -178,13 +175,13 @@ const Hero: React.FC = () => {
               <ThemeColorPicker
                 sectionId="hero"
                 colors={editValues.colors}
-                onChange={(sectionId, bg, text) => 
+                onChange={(sectionId, bg, text) =>
                   setEditValues({
                     ...editValues,
                     colors: {
                       ...editValues.colors,
-                      [sectionId]: { bg, text }
-                    }
+                      [sectionId]: { bg, text },
+                    },
                   })
                 }
               />
@@ -240,20 +237,21 @@ const Hero: React.FC = () => {
       >
         {isEditing && editValues.imageUrl ? (
           <img
-             src={editValues.imageUrl}
-             alt="ETNA Modern Lighting"
-             className="w-full h-full object-cover opacity-50 transition-all duration-500"
+            src={editValues.imageUrl}
+            alt="ETNA Modern Lighting"
+            className="w-full h-full object-cover opacity-50 transition-all duration-500"
           />
-        ) : config.hero_image_url && config.hero_image_url !== '/images/hero.jpg' ? (
-           <img
-             src={config.hero_image_url}
-             alt="ETNA Modern Lighting"
-             className="w-full h-full object-cover opacity-50 transition-all duration-500"
+        ) : config.hero_image_url &&
+          config.hero_image_url !== "/images/hero.jpg" ? (
+          <img
+            src={config.hero_image_url}
+            alt="ETNA Modern Lighting"
+            className="w-full h-full object-cover opacity-50 transition-all duration-500"
           />
         ) : (
-           <FloatingGeometryHero />
+          <FloatingGeometryHero />
         )}
-        
+
         <div className="absolute inset-0 bg-gradient-to-b from-navalBlue/30 via-transparent to-navalBlue/80 pointer-events-none"></div>
       </div>
 
@@ -273,7 +271,11 @@ const Hero: React.FC = () => {
               placeholder="ETNA..."
             />
           ) : (
-            <span dangerouslySetInnerHTML={{ __html: config.hero_headline || "ETNA" }} />
+            <span
+              dangerouslySetInnerHTML={{
+                __html: config.hero_headline || "ETNA",
+              }}
+            />
           )}
 
           {isEditing ? (
@@ -287,9 +289,11 @@ const Hero: React.FC = () => {
               placeholder="LIGHTING_TECH..."
             />
           ) : (
-            <span 
+            <span
               className="text-4xl md:text-6xl tracking-[0.2em] font-light mt-2 md:mt-0 block"
-              dangerouslySetInnerHTML={{ __html: config.hero_subheadline || "LIGHTING_TECH" }}
+              dangerouslySetInnerHTML={{
+                __html: config.hero_subheadline || "LIGHTING_TECH",
+              }}
             />
           )}
         </h1>

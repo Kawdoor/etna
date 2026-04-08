@@ -352,7 +352,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
               </div>
             </div>
 
-            <div className="md:sticky md:top-32 h-fit space-y-8 bg-neutral-50 p-8 rounded-lg animate-in slide-in-from-right-4 duration-1000">
+            <div className="md:sticky md:top-32 h-fit space-y-8 bg-navalBlue text-white p-8 rounded-lg animate-in slide-in-from-right-4 duration-1000 shadow-2xl">
               <div className="space-y-2">
                 <span className="font-futuristic text-[10px] tracking-[0.3em] uppercase opacity-50">
                   {product.category} COLLECTION
@@ -363,14 +363,14 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 <div className="flex items-center flex-wrap gap-4">
                   {product.sale_price ? (
                     <div className="flex items-baseline gap-4">
-                      <span className="text-3xl font-light text-red-600">
+                      <span className="text-3xl font-light text-red-400">
                         ${product.sale_price.toLocaleString()}
                       </span>
-                      <span className="text-xl line-through text-neutral-500">
+                      <span className="text-xl line-through text-white/50">
                         $
                         {product.price ? product.price.toLocaleString() : "999"}
                       </span>
-                      <span className="px-2 py-1 bg-red-100 text-red-600 text-[9px] font-futuristic tracking-widest rounded">
+                      <span className="px-2 py-1 bg-red-500/20 text-red-300 text-[9px] font-futuristic tracking-widest rounded border border-red-500/30">
                         -
                         {product.price && product.sale_price
                           ? Math.round(
@@ -403,7 +403,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       setIsOpen(true);
                       onClose();
                     }}
-                    className="bg-pullmanBrown text-white px-8 py-3 rounded-full hover:bg-pullmanBrown/90 transition-colors flex items-center justify-center gap-2 font-futuristic text-xs tracking-widest uppercase"
+                    className="bg-white text-navalBlue px-8 py-3 rounded-full hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 font-futuristic text-xs tracking-widest uppercase shadow-xl"
                     aria-label="Agregar al carrito"
                   >
                     AGREGAR AL CARRITO
@@ -411,9 +411,9 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                 </div>
               </div>
 
-              <div className="text-[10px] text-neutral-600 font-light space-y-2 pt-4 border-t border-navalBlue/5">
+              <div className="text-[10px] text-white/70 font-light space-y-2 pt-4 border-t border-white/10">
                 <textarea
-                  className="w-full bg-transparent border border-navalBlue/10 p-3 text-xs font-light text-neutral-600 outline-none focus:border-navalBlue/30 transition-colors resize-none mb-2"
+                  className="w-full bg-white/5 border border-white/10 p-3 text-xs font-light text-white outline-none focus:border-white/30 transition-colors resize-none mb-2 rounded"
                   rows={3}
                   value={customMessage}
                   onChange={(e) => setCustomMessage(e.target.value)}
@@ -428,7 +428,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                         "_blank",
                       );
                     }}
-                    className="flex-1 py-3 border border-navalBlue/10 hover:bg-navalBlue hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
+                    className="flex-1 py-3 border border-white/20 hover:bg-white hover:text-navalBlue transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2 rounded"
                   >
                     <svg
                       className="w-4 h-4"
@@ -449,7 +449,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       });
                       window.dispatchEvent(event);
                     }}
-                    className="flex-1 py-3 border border-navalBlue/10 hover:bg-navalBlue hover:text-white transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2"
+                    className="flex-1 py-3 border border-white/20 hover:bg-white hover:text-navalBlue transition-all text-xs font-futuristic tracking-widest uppercase flex items-center justify-center gap-2 rounded"
                   >
                     <svg
                       className="w-4 h-4"
@@ -526,7 +526,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                     {/* Upload Box */}
                     <div
                       onClick={() => fileInputRef.current?.click()}
-                      className="aspect-video bg-neutral-50 border border-dashed border-navalBlue/20 hover:border-navalBlue transition-colors cursor-pointer flex flex-col items-center justify-center group relative overflow-hidden"
+                      className="aspect-video bg-neutral-800/50 border border-dashed border-white/20 hover:border-white transition-colors cursor-pointer flex flex-col items-center justify-center group relative overflow-hidden rounded-lg"
                     >
                       {userImage ? (
                         <img
@@ -537,7 +537,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                       ) : (
                         <div className="text-center space-y-4">
                           <svg
-                            className="w-8 h-8 mx-auto opacity-20"
+                            className="w-8 h-8 mx-auto opacity-40 text-neutral-400"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -549,7 +549,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                               d="M12 4v16m8-8H4"
                             />
                           </svg>
-                          <span className="font-futuristic text-[9px] tracking-widest text-neutral-600 block">
+                          <span className="font-futuristic text-[9px] tracking-widest text-neutral-400 block">
                             SUBIR_FOTO_ESPACIO
                           </span>
                         </div>
@@ -567,19 +567,19 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                     {userImage && (
                       <div className="space-y-8 animate-in fade-in slide-in-from-top-4">
                         <div className="space-y-4">
-                          <label className="font-futuristic text-[8px] tracking-[0.3em] text-neutral-600 uppercase block">
+                          <label className="font-futuristic text-[8px] tracking-[0.3em] text-neutral-400 uppercase block">
                             1. VISIÓN_ALGORÍTMICA
                           </label>
                           <textarea
                             value={clarification}
                             onChange={(e) => setClarification(e.target.value)}
                             placeholder="Describe el ambiente (ej: 'Minimalista, mucha luz, paredes blancas')..."
-                            className="w-full bg-neutral-50 border border-navalBlue/10 p-4 text-sm font-light focus:border-navalBlue focus:outline-none transition-colors min-h-[100px] resize-none"
+                            className="w-full bg-neutral-800/50 border border-white/10 p-4 text-sm font-light text-white focus:border-white focus:outline-none transition-colors min-h-[100px] resize-none rounded-lg"
                           />
                         </div>
 
                         <div className="space-y-4">
-                          <label className="font-futuristic text-[8px] tracking-[0.3em] text-neutral-600 uppercase block">
+                          <label className="font-futuristic text-[8px] tracking-[0.3em] text-neutral-400 uppercase block">
                             2. ESCENA_LUMÍNICA
                           </label>
                           <div className="grid grid-cols-3 gap-4">
@@ -607,13 +607,13 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                               <button
                                 key={theme.id}
                                 onClick={() => setSelectedTheme(theme.id)}
-                                className={`relative py-4 border border-navalBlue/10 overflow-hidden group transition-all duration-300 ${selectedTheme === theme.id ? "border-transparent" : "bg-white"}`}
+                                className={`relative py-4 border border-white/10 overflow-hidden group transition-all duration-300 rounded-lg ${selectedTheme === theme.id ? "border-transparent" : "bg-neutral-800/50"}`}
                               >
                                 <div
                                   className={`absolute inset-0 transition-transform duration-500 ease-out ${selectedTheme === theme.id ? `translate-y-0 ${theme.color}` : `translate-y-full group-hover:translate-y-0 ${theme.color}`}`}
                                 />
                                 <span
-                                  className={`relative z-10 font-futuristic text-[9px] tracking-widest transition-colors duration-300 ${selectedTheme === theme.id ? theme.text : "text-neutral-500 group-hover:" + theme.text}`}
+                                  className={`relative z-10 font-futuristic text-[9px] tracking-widest transition-colors duration-300 ${selectedTheme === theme.id ? theme.text : "text-neutral-400 group-hover:" + theme.text}`}
                                 >
                                   {theme.label}
                                 </span>
@@ -625,7 +625,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
                         <button
                           onClick={handleVisualize}
                           disabled={isGenerating}
-                          className="w-full bg-pullmanBrown text-white py-6 font-futuristic text-[10px] tracking-[0.3em] uppercase hover:bg-pullmanBrown/90 transition-colors disabled:opacity-50"
+                          className="w-full bg-white text-navalBlue py-6 rounded-lg font-futuristic text-[10px] tracking-[0.3em] uppercase hover:bg-neutral-200 transition-colors disabled:opacity-50"
                         >
                           {isGenerating
                             ? "PROCESANDO_SIMULACIÓN..."
@@ -638,7 +638,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onClose }) => {
               </div>
 
               {/* Result Column */}
-              <div className="aspect-square bg-neutral-100 relative overflow-hidden border border-navalBlue/5">
+              <div className="aspect-square bg-neutral-800/50 rounded-lg relative overflow-hidden border border-white/5">
                 {resultImage ? (
                   <div className="relative w-full h-full group">
                     <ImageWithLoader

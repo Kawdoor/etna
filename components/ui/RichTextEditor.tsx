@@ -94,7 +94,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         >
           I
         </button>
-        
+
         <div className="relative">
           <button
             onMouseDown={(e) => {
@@ -108,7 +108,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           >
             Tx
           </button>
-          
+
           {showSizeMenu && (
             <div className="absolute top-full left-0 mt-2 bg-navalBlue/90 backdrop-blur-md border border-white/10 rounded overflow-hidden flex flex-col min-w-[2rem] shadow-xl">
               {[1, 2, 3, 4, 5, 6, 7].map((size) => (
@@ -120,8 +120,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                     setShowSizeMenu(false);
                   }}
                   className={`px-3 py-2 text-xs hover:bg-white/20 text-center transition-colors ${
-                    activeStyles.fontSize === size.toString() 
-                      ? "text-white bg-white/20 font-bold" 
+                    activeStyles.fontSize === size.toString()
+                      ? "text-white bg-white/20 font-bold"
                       : "text-neutral-400"
                   }`}
                   title={`Tamaño ${size}`}
@@ -134,7 +134,10 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         </div>
 
         {/* Color Selection */}
-        <div className="relative flex items-center justify-center w-8 h-8 hover:bg-white/20 rounded cursor-pointer transition-colors" title="Color de Letra">
+        <div
+          className="relative flex items-center justify-center w-8 h-8 hover:bg-white/20 rounded cursor-pointer transition-colors"
+          title="Color de Letra"
+        >
           <div className="w-5 h-5 rounded-full overflow-hidden border border-white/40">
             <input
               type="color"

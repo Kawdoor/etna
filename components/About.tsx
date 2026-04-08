@@ -107,11 +107,23 @@ const About: React.FC = () => {
     }));
   };
 
-
   // Permitir cambiar color siempre y reflejar cambios inmediatos
-  const [editColors, setEditColors] = useState<{ bg: string; text: string } | null>(null);
-  const aboutColors = editColors || (isEditing ? (editValues.colors?.about || { bg: "bg-pullmanBrown", text: "text-white" }) : (config.theme_colors?.about || { bg: "bg-pullmanBrown", text: "text-white" }));
-  const currentWrapperClass = `${aboutColors.bg} pt-32 pb-24 ${aboutColors.text?.startsWith('#') ? '' : aboutColors.text} relative group/about flex flex-col transition-colors duration-500`;
+  const [editColors, setEditColors] = useState<{
+    bg: string;
+    text: string;
+  } | null>(null);
+  const aboutColors =
+    editColors ||
+    (isEditing
+      ? editValues.colors?.about || {
+          bg: "bg-pullmanBrown",
+          text: "text-white",
+        }
+      : config.theme_colors?.about || {
+          bg: "bg-pullmanBrown",
+          text: "text-white",
+        });
+  const currentWrapperClass = `${aboutColors.bg} pt-32 pb-24 ${aboutColors.text?.startsWith("#") ? "" : aboutColors.text} relative group/about flex flex-col transition-colors duration-500`;
 
   const handleColorChange = (bg: string, text: string) => {
     setEditColors({ bg, text });
@@ -137,16 +149,13 @@ const About: React.FC = () => {
     <div
       id="about"
       className={currentWrapperClass}
-      style={{ color: aboutColors.text?.startsWith('#') ? aboutColors.text : undefined }}
+      style={{
+        color: aboutColors.text?.startsWith("#") ? aboutColors.text : undefined,
+      }}
     >
       {/* Admin Controls */}
       {isAdmin && (
         <div className="absolute top-24 right-6 z-50 flex gap-4 items-center">
-          <ThemeColorPicker
-            currentColor={aboutColors.bg}
-            currentTextColor={aboutColors.text}
-            onChange={handleColorChange}
-          />
           {!isEditing ? (
             <button
               onClick={() => setIsEditing(true)}
@@ -169,6 +178,11 @@ const About: React.FC = () => {
             </button>
           ) : (
             <>
+              <ThemeColorPicker
+                currentColor={aboutColors.bg}
+                currentTextColor={aboutColors.text}
+                onChange={handleColorChange}
+              />
               <button
                 onClick={handleSave}
                 className="p-2 bg-green-500/80 backdrop-blur-md rounded-full text-white hover:bg-green-500 transition-all shadow-xl"
@@ -288,7 +302,9 @@ const About: React.FC = () => {
                         <input
                           type="file"
                           hidden
-                          ref={(el) => { if (el) fileRefs.current[index] = el; }}
+                          ref={(el) => {
+                            if (el) fileRefs.current[index] = el;
+                          }}
                           onChange={(e) => handleImageUpload(e, index)}
                           accept="image/*"
                         />

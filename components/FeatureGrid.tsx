@@ -423,7 +423,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
           {isEditing && (
             <div className="mr-4 animate-fade-in-up">
               <ThemeColorPicker
-                currentColor={editValues.colors?.showcase?.bg || "bg-navyDark"} 
+                currentColor={editValues.colors?.showcase?.bg || "bg-navyDark"}
                 currentTextColor={editValues.colors?.showcase?.text || ""}
                 onChange={(bg, text) =>
                   setEditValues((prev) => ({
@@ -633,7 +633,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                   dangerouslySetInnerHTML={{
                     __html: showAll
                       ? config.catalog_description_full || "FILTROS_TÉCNICOS"
-                      : config.catalog_description || "LA COLECCIÓN"
+                      : config.catalog_description || "LA COLECCIÓN",
                   }}
                 />
               )}
