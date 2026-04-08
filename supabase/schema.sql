@@ -80,8 +80,25 @@ create policy "Public insert sale_items" on public.sale_items for insert with ch
 drop policy if exists "Authenticated admin sale_items" on public.sale_items;
 create policy "Authenticated admin sale_items" on public.sale_items for select using (true);
 
--- STORAGE BUCKETS
-insert into storage.buckets (id, name, public) values ('products', 'products', true) on conflict (id) do nothing;
+
+-- NOTA IMPORTANTE:
+-- Si usas Supabase Cloud, el schema y las tablas del sistema 'storage' ya existen y no tienes permisos para crearlas.
+-- Si usas Postgres local, puedes descomentar las siguientes líneas para crear el schema y la tabla si no existen.
+-- Por defecto, el script solo intentará insertar el bucket si existe la tabla.
+--
+-- CREATE SCHEMA IF NOT EXISTS storage;
+-- CREATE TABLE IF NOT EXISTS storage.buckets (
+--   id text primary key,
+--   name text not null,
+--   public boolean default false
+-- );
+
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'storage' AND table_name = 'buckets') THEN
+    INSERT INTO storage.buckets (id, name, public) VALUES ('products', 'products', true) ON CONFLICT (id) DO NOTHING;
+  END IF;
+END $$;
 
 drop policy if exists "Public view access" on storage.objects;
 create policy "Public view access" on storage.objects for select using ( bucket_id = 'products' );
