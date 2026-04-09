@@ -63,7 +63,7 @@ const ExpandingGridRow: React.FC<{
 
           <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12 text-white pointer-events-none">
             <div className="pb-12">
-              <p className="font-futuristic text-[10px] lg:text-xs uppercase tracking-[0.4em] font-bold mb-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+              <p className="font-futuristic text-sm lg:text-lg text-white opacity-100 drop-shadow-md uppercase tracking-[0.4em] font-bold mb-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                 {p.tag}
               </p>
               <h3 className="font-futuristic text-3xl lg:text-5xl font-bold mb-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-150">
