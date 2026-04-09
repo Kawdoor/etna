@@ -494,7 +494,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         onClick={onClose}
       />
 
-      <div className="bg-white dark:bg-navyDark w-full max-w-4xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto flex flex-col md:flex-row gap-8">
+      <div className="bg-white dark:bg-adminBlue w-full max-w-4xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto flex flex-col md:flex-row gap-8">
         {/* Left Col: Order Details */}
         <div className="flex-1 space-y-6">
           <h3 className="font-futuristic text-lg tracking-[0.2em] mb-8 uppercase dark:text-white text-navalBlue border-b border-neutral-100 dark:border-navalBlue pb-4">
@@ -746,7 +746,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onCancel}
       />
-      <div className="bg-white dark:bg-navyDark w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+      <div className="bg-white dark:bg-adminBlue w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
         <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase text-red-600 dark:text-red-500">
           {title}
         </h3>

@@ -1384,7 +1384,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         className="absolute inset-0 bg-navalBlue/90 backdrop-blur-md"
         onClick={onCancel}
       />
-      <div className="bg-white dark:bg-navyDark w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
+      <div className="bg-white dark:bg-adminBlue w-full max-w-md p-8 border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10">
         <h3 className="font-futuristic text-lg tracking-[0.2em] mb-4 uppercase text-red-600 dark:text-red-500">
           {title}
         </h3>

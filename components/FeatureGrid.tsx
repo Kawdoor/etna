@@ -139,6 +139,21 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
 
   const [scrollY, setScrollY] = useState(0);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [gridLayout, setGridLayout] = useState<"2x4" | "3x3" | "2x2">("2x4");
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filter, searchQuery, advancedFilters, sortOption, priceRange]);
+
+  const getLayoutConfig = () => {
+    switch (gridLayout) {
+      case "3x3": return { itemsPerPage: 9, cols: 3 };
+      case "2x2": return { itemsPerPage: 4, cols: 2 };
+      case "2x4": default: return { itemsPerPage: 8, cols: 2 };
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -372,20 +387,24 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
   ]);
 
   const displayedProducts = useMemo(() => {
-    if (showAll) return filteredProducts;
-
-    // Landing Page: Show Featured Products
-    const featured = allProducts.filter((p) => p.featured);
-    return featured.length > 0 ? featured.slice(0, 4) : allProducts.slice(0, 4);
-  }, [showAll, filteredProducts, allProducts]);
+    if (!showAll) {
+      // Landing Page: Show Featured Products
+      const featured = allProducts.filter((p) => p.featured);
+      return featured.length > 0 ? featured.slice(0, 4) : allProducts.slice(0, 4);
+    }
+    const { itemsPerPage } = getLayoutConfig();
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+  }, [showAll, filteredProducts, allProducts, currentPage, gridLayout]);
 
   const displayedChunks = useMemo(() => {
     const chunks = [];
-    for (let i = 0; i < displayedProducts.length; i += 2) {
-      chunks.push(displayedProducts.slice(i, i + 2));
+    const { cols } = getLayoutConfig();
+    for (let i = 0; i < displayedProducts.length; i += cols) {
+      chunks.push(displayedProducts.slice(i, i + cols));
     }
     return chunks;
-  }, [displayedProducts]);
+  }, [displayedProducts, gridLayout]);
 
   const filters = [
     { id: "all", label: "TODOS" },
@@ -557,7 +576,6 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
               alt="Collection Hero"
               className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale"
             />
-            <div className="absolute inset-0 bg-navalBlue/60"></div>
           </div>
 
           <div
@@ -664,7 +682,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
 
             {showAll && (
               <div className="flex flex-col gap-8 relative z-[200]">
-                <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full"><div className="flex flex-col md:flex-row items-center gap-6">
                   <button
                     onClick={() => setShowFilters(!showFilters)}
                     className="font-futuristic text-xs tracking-[0.2em] border-b border-white/30 text-white/50 hover:text-white hover:border-white transition-all pb-1 uppercase"
@@ -696,7 +714,31 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
                   </div>
                 </div>
 
-                {showFilters && (
+                {/* Layout Selector */}
+                <div className="flex items-center gap-2 md:ml-auto">
+                  <span className="font-futuristic text-[9px] tracking-[0.2em] text-white/50 mr-2 uppercase">
+                    GRILLA:
+                  </span>
+                  {(["2x4", "3x3", "2x2"] as const).map((layout) => (
+                    <button
+                      key={layout}
+                      onClick={() => {
+                        setGridLayout(layout);
+                        setCurrentPage(1);
+                      }}
+                      className={`font-futuristic text-[9px] tracking-widest px-3 py-1.5 border transition-all ${
+                        gridLayout === layout
+                          ? "border-white bg-white text-navalBlue"
+                          : "border-white/20 text-white/50 hover:border-white/50 hover:text-white"
+                      }`}
+                    >
+                      {layout}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {showFilters && (
                   <div className="animate-in slide-in-from-left-4 fade-in duration-500">
                     <div className="flex flex-wrap gap-4 md:gap-12 mb-8">
                       {filters.map((f) => (
@@ -895,6 +937,37 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
           ))}
         </div>
 
+        {/* PAGINATION */}
+        {showAll && Math.ceil(filteredProducts.length / getLayoutConfig().itemsPerPage) > 1 && (
+          <div className="flex justify-center items-center gap-4 py-16">
+            <button
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="px-6 py-2 border border-white/20 text-white/70 hover:border-white transition-all font-futuristic text-[10px] tracking-widest disabled:opacity-30 disabled:cursor-not-allowed uppercase"
+            >
+              PREV
+            </button>
+            <div className="flex gap-2 font-futuristic text-[10px] tracking-widest">
+              {Array.from({ length: Math.ceil(filteredProducts.length / getLayoutConfig().itemsPerPage) }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`w-8 h-8 flex items-center justify-center border transition-all ${currentPage === i + 1 ? "border-white bg-white text-navalBlue" : "border-white/10 text-white hover:border-white/50"}`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setCurrentPage((p) => Math.min(Math.ceil(filteredProducts.length / getLayoutConfig().itemsPerPage), p + 1))}
+              disabled={currentPage === Math.ceil(filteredProducts.length / getLayoutConfig().itemsPerPage)}
+              className="px-6 py-2 border border-white/20 text-white/70 hover:border-white transition-all font-futuristic text-[10px] tracking-widest disabled:opacity-30 disabled:cursor-not-allowed uppercase"
+            >
+              NEXT
+            </button>
+          </div>
+        )}
+
         {!showAll && (
           <div className="mt-20 text-center pb-12 px-4">
             <button
@@ -920,3 +993,4 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
 };
 
 export default FeatureGrid;
+

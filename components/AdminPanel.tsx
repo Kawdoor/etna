@@ -232,7 +232,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
     <div className="fixed inset-0 z-[50000] bg-white dark:bg-adminBlue flex animate-in fade-in duration-700 text-navalBlue dark:text-white">
       {/* Sidebar */}
       <aside
-        className={`${isSidebarCollapsed ? "w-20" : "w-72"} border-r border-navalBlue/5 dark:border-white/5 flex flex-col transition-all duration-300 ease-in-out bg-neutral-50 dark:bg-navyDark shrink-0 overflow-visible relative z-20`}
+        className={`${isSidebarCollapsed ? "w-20" : "w-72"} border-r border-navalBlue/5 dark:border-white/5 flex flex-col transition-all duration-300 ease-in-out bg-neutral-50 dark:bg-adminBlue shrink-0 overflow-visible relative z-20`}
       >
         <div
           className={`p-8 flex items-start ${isSidebarCollapsed ? "justify-center" : "justify-between"}`}
@@ -465,7 +465,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
       {/* Main Content */}
       <main
         data-lenis-prevent
-        className="flex-1 p-6 md:p-20 overflow-y-auto bg-white dark:bg-navyDark transition-colors duration-300"
+        className="flex-1 p-6 md:p-20 overflow-y-auto bg-white dark:bg-adminBlue transition-colors duration-300"
       >
         <div className="max-w-7xl mx-auto">
           {activeTab === "dashboard" && <AdminDashboard />}
