@@ -154,7 +154,7 @@ export const AdminDashboard: React.FC = () => {
         ].map((stat, i) => (
           <div
             key={i}
-            className={`p-8 border bg-neutral-50 dark:bg-navalBlue/40 hover:border-navalBlue/20 dark:hover:border-white/20 transition-colors ${
+            className={`p-8 border bg-neutral-50 dark:bg-adminBlue/40 hover:border-navalBlue/20 dark:hover:border-white/20 transition-colors ${
               stat.alert
                 ? "border-red-500/50 dark:border-red-500/50"
                 : "border-navalBlue/5 dark:border-white/5"
@@ -195,7 +195,7 @@ export const AdminDashboard: React.FC = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
         {/* Pie Chart Card */}
-        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-adminBlue/20">
           <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             DISTRIBUCIÓN_CATEGORÍA
           </h3>
@@ -244,7 +244,7 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Top Products Chart */}
-        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20 flex flex-col">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-adminBlue/20 flex flex-col">
           <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             TOP_PRODUCTOS_VALOR
           </h3>
@@ -277,7 +277,7 @@ export const AdminDashboard: React.FC = () => {
       {/* Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
         {/* Latest Orders */}
-        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-adminBlue/20">
           <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             ÚLTIMAS ÓRDENES
           </h3>
@@ -292,7 +292,7 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Latest Consultations */}
-        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20">
+        <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-adminBlue/20">
           <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
             ÚLTIMAS CONSULTAS
           </h3>
@@ -309,7 +309,7 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Monthly Performance Chart */}
-      <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-navalBlue/20 flex flex-col">
+      <div className="p-8 md:p-12 border border-navalBlue/5 dark:border-white/5 bg-neutral-50 dark:bg-adminBlue/20 flex flex-col">
         <h3 className="font-futuristic text-[10px] tracking-[0.3em] uppercase mb-12 dark:text-white text-navalBlue">
           RENDIMIENTO_MENSUAL
         </h3>

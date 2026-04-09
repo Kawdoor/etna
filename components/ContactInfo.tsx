@@ -404,12 +404,12 @@ const ContactInfo: React.FC = () => {
             {/* Google Maps Embed - Free & Interactive */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.748364808383!2d-57.954620023473175!3d-34.91277127464003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e633d7b3e64f%3A0xc6a8276f57c6b44c!2sC.%2017%20903%2C%20B1900%20La%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"
-              className="w-full h-full border-0 grayscale invert opacity-70 contrast-125 hover:opacity-90 transition-opacity"
+                className="w-full h-full border-0 grayscale invert sepia-[.5] hue-rotate-[190deg] saturate-[300%] opacity-80 contrast-125 hover:opacity-100 transition-opacity"
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            <div className="absolute inset-0 pointer-events-none border border-white/10 group-hover:border-white/20 transition-colors"></div>
+            <div className="absolute inset-0 pointer-events-none border border-white/10 group-hover:border-white/20 transition-colors bg-navalBlue/40 mix-blend-color"></div>
           </div>
         </div>
       </div>

@@ -198,7 +198,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
               placeholder="Buscar orden, email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
+              className="bg-neutral-100 dark:bg-adminBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
             />
             <button
               onClick={() => {
@@ -214,7 +214,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ onUpdate }) => {
 
         <div className="overflow-x-auto border border-neutral-200 dark:border-neutral-800 rounded-lg">
           <table className="w-full text-left">
-            <thead className="bg-neutral-50 dark:bg-navalBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
+            <thead className="bg-neutral-50 dark:bg-adminBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
               <tr>
                 <th className="px-6 py-4">ID</th>
                 <th className="px-6 py-4">Cliente</th>
@@ -507,7 +507,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Nombre
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.firstName}
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
@@ -519,7 +519,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Apellido
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.lastName}
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
@@ -531,7 +531,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Email
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -543,7 +543,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Dirección
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.address}
                 onChange={(e) =>
                   setFormData({ ...formData, address: e.target.value })
@@ -555,7 +555,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Ciudad
               </label>
               <input
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none"
                 value={formData.city}
                 onChange={(e) =>
                   setFormData({ ...formData, city: e.target.value })
@@ -567,7 +567,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 Estado
               </label>
               <select
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none appearance-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none appearance-none"
                 value={formData.status}
                 onChange={(e) =>
                   setFormData({
@@ -596,7 +596,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <div className="relative">
             <input
               placeholder="Buscar producto..."
-              className="w-full bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 p-3 text-sm outline-none focus:border-navalBlue dark:focus:border-white"
+              className="w-full bg-neutral-100 dark:bg-adminBlue border border-neutral-200 dark:border-neutral-800 p-3 text-sm outline-none focus:border-navalBlue dark:focus:border-white"
               value={productSearch}
               onChange={(e) => {
                 setProductSearch(e.target.value);
@@ -605,7 +605,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
               onFocus={() => setIsProductListOpen(true)}
             />
             {isProductListOpen && productSearch && (
-              <div className="absolute top-full left-0 right-0 max-h-[300px] overflow-y-auto bg-white dark:bg-navalBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
+              <div className="absolute top-full left-0 right-0 max-h-[300px] overflow-y-auto bg-white dark:bg-adminBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
@@ -633,7 +633,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             {formData.items?.map((item, idx) => (
               <div
                 key={`${item.product_id || "new"}-${idx}`}
-                className="bg-neutral-50 dark:bg-navalBlue p-3 rounded flex gap-3 items-start group relative"
+                className="bg-neutral-50 dark:bg-adminBlue p-3 rounded flex gap-3 items-start group relative"
               >
                 <img
                   src={item.product_image}

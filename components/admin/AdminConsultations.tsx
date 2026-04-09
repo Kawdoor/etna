@@ -199,7 +199,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
               placeholder="Buscar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-neutral-100 dark:bg-navalBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
+              className="bg-neutral-100 dark:bg-adminBlue border border-neutral-200 dark:border-neutral-800 px-4 py-2 text-sm outline-none focus:border-neutral-500 w-full md:w-64 transition-colors"
             />
             <button
               onClick={() => {
@@ -215,7 +215,7 @@ export const AdminConsultations: React.FC<AdminConsultationsProps> = ({
 
         <div className="overflow-x-auto border border-neutral-200 dark:border-neutral-800 rounded-lg">
           <table className="w-full text-left">
-            <thead className="bg-neutral-50 dark:bg-navalBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
+            <thead className="bg-neutral-50 dark:bg-adminBlue text-[10px] font-futuristic tracking-widest text-neutral-500 uppercase border-b border-neutral-200 dark:border-neutral-800">
               <tr>
                 <th className="px-6 py-4">Cliente</th>
                 <th className="px-6 py-4">Producto</th>
@@ -427,7 +427,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
               </label>
               <input
                 placeholder="NOMBRE"
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
                 value={formData.customerName}
                 onChange={(e) =>
                   setFormData({ ...formData, customerName: e.target.value })
@@ -439,7 +439,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
                 Estado
               </label>
               <select
-                className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors appearance-none"
+                className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors appearance-none"
                 value={formData.status}
                 onChange={(e) =>
                   setFormData({
@@ -460,7 +460,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </label>
             <input
               placeholder="MODELO / REFERENCIA"
-              className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
+              className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors"
               value={formData.productName}
               onFocus={() => setIsProductListOpen(true)}
               onBlur={() => setTimeout(() => setIsProductListOpen(false), 200)}
@@ -470,7 +470,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
               }}
             />
             {isProductListOpen && filteredProducts.length > 0 && (
-              <div className="absolute top-full left-0 right-0 max-h-[200px] overflow-y-auto bg-white dark:bg-navalBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
+              <div className="absolute top-full left-0 right-0 max-h-[200px] overflow-y-auto bg-white dark:bg-adminBlue border border-t-0 border-neutral-200 dark:border-neutral-800 shadow-xl z-20">
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
@@ -500,7 +500,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </label>
             <textarea
               placeholder="DETALLE DE LA CONSULTA..."
-              className="w-full bg-neutral-50 dark:bg-navalBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors min-h-[120px] resize-none"
+              className="w-full bg-neutral-50 dark:bg-adminBlue border border-neutral-200 dark:border-white/10 p-3 text-sm focus:border-navalBlue dark:focus:border-white outline-none transition-colors min-h-[120px] resize-none"
               value={formData.query}
               onChange={(e) =>
                 setFormData({ ...formData, query: e.target.value })

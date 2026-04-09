@@ -26,6 +26,7 @@ export default {
         navalBlue: '#001838', // Primary color (much darker naval blue)
         navyDark: '#011c47', // Deep navy for dark backgrounds (replacing black)
         navyLight: '#1a6ce6', // Lighter naval blue for accents
+        adminBlue: '#000A1A', // Even darker blue requested for Admin Panel
         pullmanBrown: '#3a2410', // Secondary color
         darkGray: '#1a1a1a', // Replaces black
       },
